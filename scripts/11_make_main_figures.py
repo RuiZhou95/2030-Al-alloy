@@ -117,12 +117,14 @@ def normalized_rows(frame: pd.DataFrame) -> np.ndarray:
 
 
 def fig1(tr, ex, identity, variance):
-    fig = figmm(102)
-    gs = fig.add_gridspec(2, 6, width_ratios=[0.95, 0.95, 1.25, 1.25, 1.10, 1.10],
-                          hspace=0.58, wspace=0.72)
+    fig = figmm(130)
+    gs = fig.add_gridspec(3, 6,
+                          width_ratios=[0.95, 0.95, 1.25, 1.25, 1.10, 1.10],
+                          height_ratios=[1.0, 0.92, 0.52],
+                          hspace=0.72, wspace=0.72)
     raw = tr.groupby("grade")[["Mg_wt_pct", "Cu_wt_pct", "Si_wt_pct", "Zn_wt_pct"]].median().reindex(GRADES)
     raw["Mn+Cr"] = tr.assign(MnCr=tr.Mn_wt_pct + tr.Cr_wt_pct).groupby("grade").MnCr.median().reindex(GRADES)
-    ax = fig.add_subplot(gs[:, 0:2]); label(ax, "a")
+    ax = fig.add_subplot(gs[0:2, 0:2]); label(ax, "a")
     im = ax.imshow(normalized_rows(raw), cmap="Blues", vmin=0, vmax=1, aspect="auto")
     labs = ["Mg", "Cu", "Si", "Zn", "Mn+Cr"]
     ax.set_xticks(range(5), labs, rotation=30, ha="right", rotation_mode="anchor")
@@ -136,7 +138,7 @@ def fig1(tr, ex, identity, variance):
     ax.tick_params(length=0)
     ax.spines[:].set_visible(False)
 
-    ax = fig.add_subplot(gs[0, 3:6]); label(ax, "b")
+    ax = fig.add_subplot(gs[0, 2:6]); label(ax, "b")
     label_offsets = {"2024": (-12, 16), "5083": (-4, 16), "6082": (10, 20), "7075": (12, 14)}
     for g in GRADES:
         q = tr[tr.grade == g]
@@ -189,7 +191,36 @@ def fig1(tr, ex, identity, variance):
     for xi, b in zip(x, between):
         ax.text(xi, b / 2, f"{b:.2f}", color="white", ha="center", va="center", fontsize=5.8)
 
-    fig.subplots_adjust(left=0.10, right=0.995, top=0.96, bottom=0.14)
+    ax = fig.add_subplot(gs[2, 0:6]); ax.axis("off"); label(ax, "e")
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    overview = [
+        ("284 modelling\nsamples", "composition + process\nYS / UTS / EL"),
+        ("Mechanism-resolved\nevidence", "between-grade chemistry\nwithin-grade states"),
+        ("Route-constrained\ndesign", "prediction + uncertainty\nmanufacturability"),
+        ("Four post-model\ntrials", "melting + processing\ntensile testing"),
+    ]
+    xs = [0.015, 0.265, 0.515, 0.765]
+    box_w, box_h, y0 = 0.21, 0.58, 0.22
+    for i, ((title, body), x0) in enumerate(zip(overview, xs)):
+        ax.add_patch(FancyBboxPatch(
+            (x0, y0), box_w, box_h,
+            boxstyle="round,pad=0.012,rounding_size=0.018",
+            fc="#F4F4F4" if i < 3 else "#F7EDF1",
+            ec=GREY if i < 3 else C["7075"], lw=0.85,
+        ))
+        ax.text(x0 + box_w / 2, y0 + 0.39, title, ha="center", va="center",
+                weight="bold", fontsize=5.3, linespacing=0.95)
+        ax.text(x0 + box_w / 2, y0 + 0.13, body, ha="center", va="center",
+                color=GREY, fontsize=5.0, linespacing=0.95)
+        if i < 3:
+            ax.add_patch(FancyArrowPatch(
+                (x0 + box_w + 0.006, y0 + box_h / 2),
+                (xs[i + 1] - 0.008, y0 + box_h / 2),
+                arrowstyle="-|>", mutation_scale=8, color=GREY, lw=0.8,
+            ))
+
+    fig.subplots_adjust(left=0.10, right=0.995, top=0.97, bottom=0.055)
     save(fig, "fig1_hierarchical_material_space")
     raw.reset_index().to_csv(DATA / "fig1_raw_composition_medians.csv", index=False, encoding="utf-8-sig")
 
@@ -261,10 +292,10 @@ def fig2(primary, library):
     ax.set_xlim(0, 1)
     ax.set_ylim(-0.12, 1.12)
     steps = [
-        ("284 modelling samples", "full elemental + process fields"),
-        ("Comparative evidence", "between-grade indicators / within-grade conditions"),
-        ("Candidate selection", "target + data distance + manufacturability"),
-        ("4 alloy trials", "new melting, processing and tensile tests"),
+        ("118 descriptor candidates", "raw, molar, pair, phase-capacity and aggregate terms"),
+        ("Coverage + redundancy checks", "finite support and correlated-feature control"),
+        ("Two evidence levels", "between-grade separation + within-grade association"),
+        ("Bootstrap-stable roles", "1,000 resamples + metallurgical interpretation"),
     ]
     ys = [0.96, 0.64, 0.32, 0.00]
     for i, ((title, body), y0) in enumerate(zip(steps, ys)):
