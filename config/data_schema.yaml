@@ -1,0 +1,39 @@
+root_environment_variable: ALLOY_PRIVATE_ROOT
+data_subdirectory: data
+primary_files:
+  processed:
+    filename: 01_processed_data.csv
+    required_columns:
+      - sample_id
+      - alloy_or_coating_name
+      - yield_strength_mpa
+      - ultimate_tensile_strength_mpa
+      - elongation_pct
+  engineered:
+    filename: 02_engineered_features.csv
+    required_columns:
+      - sample_id
+  prospective_trials:
+    filename: verification_holdout.csv
+    required_columns:
+      - sample_id
+      - alloy_or_coating_name
+      - yield_strength_mpa
+      - ultimate_tensile_strength_mpa
+      - elongation_pct
+  variance_decomposition:
+    filename: variance_decomposition.csv
+symbolic_regression_files:
+  filename_patterns:
+    - sr_<target>_scan_all.csv
+    - sr_<target>_features.txt
+    - sr_<target>_best.json
+    - sr_<target>_X_tr.csv
+    - sr_<target>_X_te.csv
+  targets:
+    - yield_strength_mpa
+    - delta_strength_mpa
+    - elongation_pct
+notes:
+  - Composition and process-feature columns are read from the private tables.
+  - No study data are included in the public repository.

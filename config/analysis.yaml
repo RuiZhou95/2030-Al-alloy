@@ -1,0 +1,20 @@
+random_seed: 42
+grades:
+  - "2024"
+  - "5083"
+  - "6082"
+  - "7075"
+targets:
+  - yield_strength_mpa
+  - ultimate_tensile_strength_mpa
+  - elongation_pct
+derived_targets:
+  delta_strength_mpa: ultimate_tensile_strength_mpa - yield_strength_mpa
+validation:
+  schemes:
+    - random
+    - condition
+    - route
+    - leave_grade
+  bootstrap_replicates: 1000
+  external_trial_samples: 4

@@ -1,0 +1,44 @@
+# Private inputs and generated outputs
+private_data/
+data/
+outputs/
+results/
+figures/
+models/
+
+# Data, model, figure and manuscript artefacts
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.joblib
+*.pkl
+*.pickle
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.tif
+*.tiff
+*.doc
+*.docx
+*.ppt
+*.pptx
+
+# Runtime and local environment
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+.env
+.env.*
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
