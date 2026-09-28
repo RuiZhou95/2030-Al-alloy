@@ -206,8 +206,8 @@ def fig1(tr, ex, identity, variance):
         ("Route-\nconstrained\ndesign", "prediction + uncertainty\nmanufacturability"),
         ("Four post-\nmodel trials", "melting + processing\ntensile testing"),
     ]
-    xs = [0.015, 0.285, 0.555, 0.825]
-    box_w, box_h, y0 = 0.15, 0.64, 0.18
+    xs = [0.015, 0.270, 0.525, 0.780]
+    box_w, box_h, y0 = 0.195, 0.64, 0.18
     for i, ((title, body), x0) in enumerate(zip(overview, xs)):
         ax.add_patch(FancyBboxPatch(
             (x0, y0), box_w, box_h,
@@ -614,11 +614,12 @@ def fig7(pred):
     fig.text(.015, .73, "Frozen prediction", rotation=90, rotation_mode="anchor",
              va="center", ha="center", fontsize=7.2)
 
+    bottom_gs = gs[1, :].subgridspec(1, 2, wspace=0.52)
     for i, (col, title, lim, letter) in enumerate([
         ("relative_error_pct", "Relative error (%)", 20, "d"),
         ("error", "Residual / CV-RMSE", 1.6, "e"),
     ]):
-        ax = fig.add_subplot(gs[1, 3 * i:3 * i + 3])
+        ax = fig.add_subplot(bottom_gs[0, i])
         label(ax, letter)
         matrix = np.zeros((4, 3))
         for gi, grade in enumerate(GRADES):
@@ -634,7 +635,7 @@ def fig7(pred):
                 ax.text(x, y, f"{matrix[y, x]:+.1f}" if col == "relative_error_pct" else f"{matrix[y, x]:+.2f}",
                         ha="center", va="center", fontsize=5.7,
                         color=contrast_text_color(im.cmap(im.norm(matrix[y, x]))))
-        fig.colorbar(im, ax=ax, fraction=.035, pad=.025)
+        fig.colorbar(im, ax=ax, fraction=.030, pad=.030)
     fig.subplots_adjust(left=.09, right=.99, bottom=.08, top=.94)
     save(fig, "fig7_trial_feedback")
 
