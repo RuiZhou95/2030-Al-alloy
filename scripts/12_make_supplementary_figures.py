@@ -82,6 +82,11 @@ def label_panel(ax, letter: str) -> None:
             fontweight="bold", ha="left", va="bottom")
 
 
+def contrast_text_color(rgba):
+    luminance = 0.2126 * rgba[0] + 0.7152 * rgba[1] + 0.0722 * rgba[2]
+    return "white" if luminance < 0.52 else INK
+
+
 def save_bundle(fig, directory: Path, stem: str) -> None:
     directory.mkdir(parents=True, exist_ok=True)
     base = directory / stem
@@ -202,7 +207,7 @@ def main_fig2(train, ext, desc) -> None:
     raw = desc.set_index("grade").loc[GRADES, cols].to_numpy(float)
     span = np.where(raw.max(0) > raw.min(0), raw.max(0)-raw.min(0), 1)
     norm = (raw - raw.min(0)) / span
-    cmap = mpl.colormaps["Blues"]
+    cmap = mpl.colormaps["RdBu_r"]
     im = ax.imshow(norm, cmap=cmap, vmin=0, vmax=1, aspect="auto")
     ax.set_xticks(range(5), labels); ax.set_yticks(range(4), GRADES)
     ax.tick_params(length=0)
@@ -355,14 +360,15 @@ def main_fig5(pred) -> None:
         (fig.add_subplot(gs[1, 3:6]), p_z, "e", "Residual / CV-RMSE", max(1.5, np.abs(p_z.to_numpy()).max()), "{:+.2f}"),
     ]:
         label_panel(ax, letter)
-        cmap = mpl.colormaps["PuOr"]
+        cmap = mpl.colormaps["RdBu_r"]
         im = ax.imshow(matrix, cmap=cmap, vmin=-lim, vmax=lim, aspect="auto")
         ax.set_xticks(range(3), [x[1].split()[0] for x in specs]); ax.set_yticks(range(4), GRADES)
         ax.set_title(title, loc="left", fontsize=7.0)
         ax.tick_params(length=0)
         for i in range(4):
             for j in range(3):
-                ax.text(j, i, fmt.format(matrix.iloc[i, j]), ha="center", va="center", fontsize=6.0)
+                ax.text(j, i, fmt.format(matrix.iloc[i, j]), ha="center", va="center", fontsize=6.0,
+                        color=contrast_text_color(im.cmap(im.norm(matrix.iloc[i, j]))))
         ax.spines[:].set_visible(False)
         fig.colorbar(im, ax=ax, fraction=0.035, pad=0.02)
     save_bundle(fig, MAIN, "fig5_cross_grade_trial_validation")
@@ -393,13 +399,13 @@ def supp_fig1() -> None:
               "rolling_reduction_pct", "specimen_thickness_mm", "manufacturing_route", "cooling_method"]
     flab = ["Homog. t", "Solution t", "Aging t", "Anneal t", "Reduction", "Thickness", "Route", "Cooling"]
     p = card.pivot(index="grade", columns="field", values="n_unique").loc[GRADES, fields]
-    raw = p.to_numpy(float); im = ax.imshow(np.log2(raw), cmap="Blues", vmin=0, vmax=np.log2(raw.max()), aspect="auto")
+    raw = p.to_numpy(float); im = ax.imshow(np.log2(raw), cmap="RdBu_r", vmin=0, vmax=np.log2(raw.max()), aspect="auto")
     ax.set_xticks(range(len(fields)), flab, rotation=42, ha="right", rotation_mode="anchor")
     ax.set_yticks(range(4), GRADES); ax.tick_params(length=0)
     for i in range(4):
         for j in range(len(fields)):
             ax.text(j, i, str(int(raw[i, j])), ha="center", va="center", fontsize=5.6,
-                    color="white" if np.log2(raw[i, j]) > 3.2 else INK)
+                    color=contrast_text_color(im.cmap(im.norm(np.log2(raw[i, j])))))
     ax.spines[:].set_visible(False); fig.colorbar(im, ax=ax, fraction=0.035, pad=0.02)
     save_bundle(fig, SUPP, "figS1_identifiability_support")
 

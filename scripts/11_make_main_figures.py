@@ -116,6 +116,11 @@ def normalized_rows(frame: pd.DataFrame) -> np.ndarray:
     return (arr - lo) / span
 
 
+def contrast_text_color(rgba):
+    luminance = 0.2126 * rgba[0] + 0.7152 * rgba[1] + 0.0722 * rgba[2]
+    return "white" if luminance < 0.52 else INK
+
+
 def fig1(tr, ex, identity, variance):
     fig = figmm(130)
     gs = fig.add_gridspec(3, 6,
@@ -125,7 +130,7 @@ def fig1(tr, ex, identity, variance):
     raw = tr.groupby("grade")[["Mg_wt_pct", "Cu_wt_pct", "Si_wt_pct", "Zn_wt_pct"]].median().reindex(GRADES)
     raw["Mn+Cr"] = tr.assign(MnCr=tr.Mn_wt_pct + tr.Cr_wt_pct).groupby("grade").MnCr.median().reindex(GRADES)
     ax = fig.add_subplot(gs[0:2, 0:2]); label(ax, "a")
-    im = ax.imshow(normalized_rows(raw), cmap="Blues", vmin=0, vmax=1, aspect="auto")
+    im = ax.imshow(normalized_rows(raw), cmap="RdBu_r", vmin=0, vmax=1, aspect="auto")
     labs = ["Mg", "Cu", "Si", "Zn", "Mn+Cr"]
     ax.set_xticks(range(5), labs, rotation=30, ha="right", rotation_mode="anchor")
     ax.set_yticks(range(4), GRADES)
@@ -133,12 +138,13 @@ def fig1(tr, ex, identity, variance):
         for j in range(5):
             v = raw.iloc[i, j]
             ax.text(j, i, f"{v:.2f}", ha="center", va="center", fontsize=5.7,
-                    color="white" if im.cmap(im.norm(normalized_rows(raw)[i, j]))[0] < 0.45 else INK)
+                    color=contrast_text_color(im.cmap(im.norm(normalized_rows(raw)[i, j]))))
     ax.set_xlabel("Median composition (wt.%)")
     ax.tick_params(length=0)
     ax.spines[:].set_visible(False)
 
-    ax = fig.add_subplot(gs[0, 2:6]); label(ax, "b")
+    ax_b = fig.add_subplot(gs[0, 2:6]); label(ax_b, "b")
+    ax = ax_b
     label_offsets = {"2024": (-12, 16), "5083": (-4, 16), "6082": (10, 20), "7075": (12, 14)}
     for g in GRADES:
         q = tr[tr.grade == g]
@@ -195,13 +201,13 @@ def fig1(tr, ex, identity, variance):
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     overview = [
-        ("284 modelling\nsamples", "composition + process\nYS / UTS / EL"),
-        ("Mechanism-resolved\nevidence", "between-grade chemistry\nwithin-grade states"),
-        ("Route-constrained\ndesign", "prediction + uncertainty\nmanufacturability"),
-        ("Four post-model\ntrials", "melting + processing\ntensile testing"),
+        ("284\nmodelling\nsamples", "composition + process\nYS / UTS / EL"),
+        ("Mechanism-\nresolved\nevidence", "between-grade chemistry\nwithin-grade states"),
+        ("Route-\nconstrained\ndesign", "prediction + uncertainty\nmanufacturability"),
+        ("Four post-\nmodel trials", "melting + processing\ntensile testing"),
     ]
-    xs = [0.015, 0.265, 0.515, 0.765]
-    box_w, box_h, y0 = 0.21, 0.58, 0.22
+    xs = [0.015, 0.285, 0.555, 0.825]
+    box_w, box_h, y0 = 0.15, 0.64, 0.18
     for i, ((title, body), x0) in enumerate(zip(overview, xs)):
         ax.add_patch(FancyBboxPatch(
             (x0, y0), box_w, box_h,
@@ -210,9 +216,9 @@ def fig1(tr, ex, identity, variance):
             ec=GREY if i < 3 else C["7075"], lw=0.85,
         ))
         ax.text(x0 + box_w / 2, y0 + 0.39, title, ha="center", va="center",
-                weight="bold", fontsize=5.3, linespacing=0.95)
+                weight="bold", fontsize=5.0, linespacing=0.90)
         ax.text(x0 + box_w / 2, y0 + 0.13, body, ha="center", va="center",
-                color=GREY, fontsize=5.0, linespacing=0.95)
+                color=GREY, fontsize=5.0, linespacing=0.90)
         if i < 3:
             ax.add_patch(FancyArrowPatch(
                 (x0 + box_w + 0.006, y0 + box_h / 2),
@@ -221,6 +227,8 @@ def fig1(tr, ex, identity, variance):
             ))
 
     fig.subplots_adjust(left=0.10, right=0.995, top=0.97, bottom=0.055)
+    pos_b = ax_b.get_position()
+    ax_b.set_position([pos_b.x0 + 0.035, pos_b.y0, pos_b.width - 0.035, pos_b.height])
     save(fig, "fig1_hierarchical_material_space")
     raw.reset_index().to_csv(DATA / "fig1_raw_composition_medians.csv", index=False, encoding="utf-8-sig")
 
@@ -258,7 +266,7 @@ def fig2(primary, library):
     ax = fig.add_subplot(gs[0, 1]); label(ax, "b")
     piv = primary.pivot(index="grade", columns="descriptor", values="branch_scaled_0_1").reindex(GRADES)
     arr = piv[[x[0] for x in descriptors]].to_numpy(float)
-    im = ax.imshow(arr, cmap="Blues", vmin=0, vmax=1, aspect="auto")
+    im = ax.imshow(arr, cmap="RdBu_r", vmin=0, vmax=1, aspect="auto")
     ax.set_xticks(range(len(descriptors)), [x[1] for x in descriptors],
                   rotation=30, ha="right", rotation_mode="anchor")
     ax.set_yticks(range(4), GRADES)
@@ -266,14 +274,14 @@ def fig2(primary, library):
     for i in range(4):
         for j in range(len(descriptors)):
             ax.text(j, i, f"{arr[i, j]:.2f}", ha="center", va="center", fontsize=5.6,
-                    color="white" if arr[i, j] > 0.58 else INK)
+                    color=contrast_text_color(im.cmap(im.norm(arr[i, j]))))
     ax.tick_params(length=0)
     ax.spines[:].set_visible(False)
 
     ax = fig.add_subplot(gs[1, 0]); label(ax, "c")
     score = primary.pivot(index="grade", columns="descriptor", values="within_grade_score").reindex(GRADES)
     ss = score[[x[0] for x in descriptors]].to_numpy(float)
-    im2 = ax.imshow(ss, cmap="YlGnBu", vmin=0, vmax=max(0.5, float(np.nanmax(ss))), aspect="auto")
+    im2 = ax.imshow(ss, cmap="RdBu_r", vmin=0, vmax=max(0.5, float(np.nanmax(ss))), aspect="auto")
     passes = primary.pivot(index="grade", columns="descriptor", values="within_grade_pass").reindex(GRADES)
     pp = passes[[x[0] for x in descriptors]].to_numpy(bool)
     ax.set_xticks(range(len(descriptors)), [x[1] for x in descriptors],
@@ -284,7 +292,7 @@ def fig2(primary, library):
         for j in range(len(descriptors)):
             txt = f"{ss[i, j]:.2f}" + ("*" if pp[i, j] else "")
             ax.text(j, i, txt, ha="center", va="center", fontsize=5.4,
-                    color="white" if ss[i, j] > 0.32 else INK)
+                    color=contrast_text_color(im2.cmap(im2.norm(ss[i, j]))))
     ax.tick_params(length=0)
     ax.spines[:].set_visible(False)
 
@@ -484,7 +492,7 @@ def fig5(tr, ex, candidates, pareto_ys, pareto_uts):
     ax = fig.add_subplot(gs[0, 4:6]); label(ax, "c")
     order = ["yield_strength_mpa", "ultimate_tensile_strength_mpa", "elongation_pct"]
     matrix = ranks.pivot(index="grade", columns="target", values="fraction_at_or_below").reindex(GRADES)[order]
-    im = ax.imshow(matrix, cmap="Blues", vmin=0, vmax=1, aspect="auto")
+    im = ax.imshow(matrix, cmap="RdBu_r", vmin=0, vmax=1, aspect="auto")
     ax.set_xticks(range(3), ["YS", "UTS", "EL"])
     ax.set_yticks(range(4), GRADES)
     ax.set_title("Trial position within grade", loc="left", fontsize=7.1)
@@ -494,7 +502,7 @@ def fig5(tr, ex, candidates, pareto_ys, pareto_uts):
             r = lookup.loc[(grade, target)]
             ax.text(j, i, f"{int(r.n_at_or_below)}/{int(r.n_modelling)}",
                     ha="center", va="center", fontsize=6.0,
-                    color="white" if matrix.iloc[i, j] > 0.65 else INK)
+                    color=contrast_text_color(im.cmap(im.norm(matrix.iloc[i, j]))))
     ax.tick_params(length=0)
     ax.spines[:].set_visible(False)
 
@@ -617,14 +625,15 @@ def fig7(pred):
             for ti, (target, _, _, _) in enumerate(specs):
                 r = pred[(pred.grade == grade) & (pred.target == target)].iloc[0]
                 matrix[gi, ti] = r.relative_error_pct if col == "relative_error_pct" else r.error / r.cv_rmse
-        im = ax.imshow(matrix, cmap="PuOr", vmin=-lim, vmax=lim, aspect="auto")
+        im = ax.imshow(matrix, cmap="RdBu_r", vmin=-lim, vmax=lim, aspect="auto")
         ax.set_xticks(range(3), [x[2] for x in specs])
         ax.set_yticks(range(4), GRADES)
         ax.set_title(title, loc="left", fontsize=7)
         for y in range(4):
             for x in range(3):
                 ax.text(x, y, f"{matrix[y, x]:+.1f}" if col == "relative_error_pct" else f"{matrix[y, x]:+.2f}",
-                        ha="center", va="center", fontsize=5.7)
+                        ha="center", va="center", fontsize=5.7,
+                        color=contrast_text_color(im.cmap(im.norm(matrix[y, x]))))
         fig.colorbar(im, ax=ax, fraction=.035, pad=.025)
     fig.subplots_adjust(left=.09, right=.99, bottom=.08, top=.94)
     save(fig, "fig7_trial_feedback")
@@ -647,7 +656,7 @@ def main():
         "n_modelling": len(tr),
         "n_trials": len(ex),
         "main_figures": 7,
-        "panel_counts": {"fig1": 4, "fig2": 4, "fig3": 4, "fig4": 6,
+        "panel_counts": {"fig1": 5, "fig2": 4, "fig3": 4, "fig4": 6,
                          "fig5": 5, "fig6": 4, "fig7": 5},
         "formats": ["svg", "pdf", "tiff", "png"],
         "exclusions": "none",
