@@ -108,3 +108,12 @@ metadata are provided in CITATION.cff.
 ## License
 
 The code is released under the MIT License. See LICENSE.
+
+## Current paper figure entry points
+
+Run scripts/11_make_main_figures.py for the revised main figures and the
+product-thickness supplement. Run scripts/14_make_current_supplement.py for
+the current supplementary figure set, using the same private inputs.
+The trial panels show engineering intervals, not experimental quartiles.
+Candidate density panels count all retained candidates at their unmodified
+prediction coordinates. Delta sigma denotes UTS minus YS.

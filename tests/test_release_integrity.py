@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import py_compile
 import re
+import subprocess
 from pathlib import Path
 
 
@@ -29,16 +30,18 @@ TEXT_SUFFIXES = {".py", ".md", ".txt", ".yaml", ".yml", ".toml", ".cff", ""}
 
 
 def repository_files():
-    for path in ROOT.rglob("*"):
-        if not path.is_file():
-            continue
-        if ".git" in path.parts or "__pycache__" in path.parts:
-            continue
-        yield path
+    result = subprocess.run(
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+        cwd=ROOT, check=True, capture_output=True,
+    )
+    for name in sorted(set(result.stdout.decode("utf-8").split("\0")) - {""}):
+        path = ROOT / name
+        if path.is_file():
+            yield path
 
 
 def test_release_file_types_and_top_level():
-    assert {p.name for p in ROOT.iterdir() if p.name not in {".git", ".pytest_cache"}} <= ALLOWED_TOP_LEVEL
+    assert {p.relative_to(ROOT).parts[0] for p in repository_files()} <= ALLOWED_TOP_LEVEL
     forbidden = [str(p.relative_to(ROOT)) for p in repository_files()
                  if p.suffix.lower() in FORBIDDEN_SUFFIXES]
     assert not forbidden, f"Forbidden release artefacts: {forbidden}"

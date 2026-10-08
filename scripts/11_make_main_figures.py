@@ -70,8 +70,9 @@ def label(ax, letter: str):
 
 
 def save(fig, stem: str):
-    FIG.mkdir(parents=True, exist_ok=True)
-    base = FIG / stem
+    directory = FIG.parent / "supporting" if stem.startswith("figS") else FIG
+    directory.mkdir(parents=True, exist_ok=True)
+    base = directory / stem
     fig.savefig(base.with_suffix(".svg"), bbox_inches="tight", pad_inches=0.02)
     fig.savefig(base.with_suffix(".pdf"), bbox_inches="tight", pad_inches=0.02)
     fig.savefig(base.with_suffix(".tiff"), dpi=600, bbox_inches="tight",
@@ -162,12 +163,12 @@ def fig1(tr, ex, identity, variance):
                           ha="center", va="center", zorder=12)
         ann.set_path_effects([pe.withStroke(linewidth=2.2, foreground="white")])
     ax.set_xlabel("YS (MPa)")
-    ax.set_ylabel("UTS - YS (MPa)")
+    ax.set_ylabel("Δσ (MPa)")
     ax.text(0.98, 0.96, "Point size = EL", transform=ax.transAxes,
             ha="right", va="top", fontsize=5.8, color=GREY, zorder=15)
 
     ax = fig.add_subplot(gs[1, 2:4]); label(ax, "c")
-    props = [("yield_strength_mpa", "YS"), ("delta_strength_mpa", "UTS-YS"), ("elongation_pct", "EL")]
+    props = [("yield_strength_mpa", "YS"), ("delta_strength_mpa", "Δσ"), ("elongation_pct", "EL")]
     pooled = tr[[p for p, _ in props]]
     mu, sd = pooled.mean(), pooled.std(ddof=0)
     y = np.arange(3)
@@ -257,9 +258,9 @@ def fig2(primary, library):
 
     descriptors = [
         ("wt_Mg", "Mg"),
-        ("phasecap_S_Al2CuMg", "Al2CuMg cap."),
-        ("phasecap_beta_Mg2Si", "Mg2Si cap."),
-        ("phasecap_eta_MgZn2", "MgZn2 cap."),
+        ("phasecap_S_Al2CuMg", "Al₂CuMg cap."),
+        ("phasecap_beta_Mg2Si", "Mg₂Si cap."),
+        ("phasecap_eta_MgZn2", "MgZn₂ cap."),
         ("dispersoid_MnCrZr_wt", "Mn+Cr+Zr"),
         ("impurity_FeSi_wt", "Fe+Si"),
     ]
@@ -303,7 +304,7 @@ def fig2(primary, library):
         ("118 descriptor candidates", "raw, molar, pair, phase-capacity and aggregate terms"),
         ("Coverage + redundancy checks", "finite support and correlated-feature control"),
         ("Two evidence levels", "between-grade separation + within-grade association"),
-        ("Bootstrap-stable roles", "1,000 resamples + metallurgical interpretation"),
+        ("Stable descriptor associations", "1,000 paired resamples + interpretation"),
     ]
     ys = [0.96, 0.64, 0.32, 0.00]
     for i, ((title, body), y0) in enumerate(zip(steps, ys)):
@@ -323,12 +324,12 @@ def fig2(primary, library):
 def branch_descriptor(d, grade):
     aw = {"Cu": 63.546, "Mg": 24.305, "Si": 28.085, "Zn": 65.38}
     if grade == "2024":
-        return np.minimum(10 * d.Cu_wt_pct / aw["Cu"], 10 * d.Mg_wt_pct / aw["Mg"]), "Al2CuMg capacity (mol kg⁻¹)"
+        return np.minimum(10 * d.Cu_wt_pct / aw["Cu"], 10 * d.Mg_wt_pct / aw["Mg"]), "Al₂CuMg capacity (mol kg⁻¹)"
     if grade == "5083":
         return d.Mg_wt_pct, "Mg (wt.%)"
     if grade == "6082":
-        return np.minimum(10 * d.Mg_wt_pct / (2 * aw["Mg"]), 10 * d.Si_wt_pct / aw["Si"]), "Mg2Si capacity (mol kg⁻¹)"
-    return np.minimum(10 * d.Mg_wt_pct / aw["Mg"], 10 * d.Zn_wt_pct / (2 * aw["Zn"])), "MgZn2 capacity (mol kg⁻¹)"
+        return np.minimum(10 * d.Mg_wt_pct / (2 * aw["Mg"]), 10 * d.Si_wt_pct / aw["Si"]), "Mg₂Si capacity (mol kg⁻¹)"
+    return np.minimum(10 * d.Mg_wt_pct / aw["Mg"], 10 * d.Zn_wt_pct / (2 * aw["Zn"])), "MgZn₂ capacity (mol kg⁻¹)"
 
 
 def state_series(d, grade):
@@ -341,7 +342,7 @@ def state_series(d, grade):
 
 
 def fig3(tr, ex):
-    fig = figmm(92)
+    fig = figmm(102)
     axes = fig.subplots(2, 2)
     cmap = mpl.colormaps["cividis"]
     norm = mpl.colors.Normalize(tr.elongation_pct.min(), tr.elongation_pct.max())
@@ -364,8 +365,8 @@ def fig3(tr, ex):
                    norm=norm, s=60, marker="*", edgecolor=INK, lw=0.7, zorder=8)
         rho_ys = q.descriptor.corr(q.yield_strength_mpa, method="spearman")
         rho_el = q.descriptor.corr(q.elongation_pct, method="spearman")
-        ax.text(0.98, 0.96, f"rho(YS)={rho_ys:+.2f}\nrho(EL)={rho_el:+.2f}",
-                transform=ax.transAxes, ha="right", va="top", fontsize=5.6,
+        ax.text(0.98, 1.03, f"rho(YS)={rho_ys:+.2f}\nrho(EL)={rho_el:+.2f}",
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=5.6, zorder=20,
                 path_effects=[pe.withStroke(linewidth=2.0, foreground="white")])
         ax.set_xlabel(xlab)
         ax.set_ylabel("YS (MPa)")
@@ -378,7 +379,7 @@ def fig3(tr, ex):
         leg.set_zorder(15)
         out.append(q[["sample_id", "grade", "state", "descriptor",
                       "yield_strength_mpa", "elongation_pct", "delta_strength_mpa"]])
-    fig.subplots_adjust(left=0.12, right=0.87, bottom=0.10, top=0.94, wspace=0.38, hspace=0.40)
+    fig.subplots_adjust(left=0.12, right=0.87, bottom=0.10, top=0.89, wspace=0.38, hspace=0.58)
     cax = fig.add_axes([0.90, 0.20, 0.018, 0.60])
     cb = fig.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax)
     cb.set_label("EL (%)")
@@ -394,12 +395,12 @@ def binned(q, xcol, ycol, n=6):
     ).reset_index(drop=True)
 
 
-def fig4(tr, ale):
+def thickness_figure(tr, ale):
     fig = figmm(100)
     axes = fig.subplots(2, 3)
     specs = [
         ("yield_strength_mpa", "YS (MPa)"),
-        ("delta_strength_mpa", "UTS - YS (MPa)"),
+        ("delta_strength_mpa", "Δσ (MPa)"),
         ("elongation_pct", "EL (%)"),
     ]
     for ax, (target, ylab), letter in zip(axes[0], specs, "abc"):
@@ -429,7 +430,7 @@ def fig4(tr, ale):
     fig.legend(handles=handles, ncol=4, loc="upper center", bbox_to_anchor=(0.54, 0.995),
                columnspacing=0.9, handletextpad=0.3)
     fig.subplots_adjust(left=0.11, right=0.99, bottom=0.10, top=0.91, wspace=0.55, hspace=0.46)
-    save(fig, "fig4_thickness_raw_and_ale")
+    save(fig, "figS7_thickness_associations")
 
 
 def nondominated(df, strength):
@@ -466,7 +467,7 @@ def nondominated_fast(df, xcol, ycol):
 
 
 def fig5(tr, ex, candidates, pareto_ys, pareto_uts):
-    fig = figmm(108)
+    fig = figmm(120)
     gs = fig.add_gridspec(2, 6, height_ratios=[1.0, 1.05], hspace=0.48, wspace=0.82)
     for k, (strength, ylab) in enumerate([
         ("yield_strength_mpa", "YS (MPa)"),
@@ -507,16 +508,23 @@ def fig5(tr, ex, candidates, pareto_ys, pareto_uts):
     ax.spines[:].set_visible(False)
 
     all_supported = candidates[candidates.supported & candidates.physically_feasible]
+    bottom_gs = gs[1, :].subgridspec(1, 2, wspace=0.47)
+    density_maps = []
     for ax, strength, pareto, letter, ylab in [
-        (fig.add_subplot(gs[1, 0:3]), "lcb_ys", pareto_ys, "d", "Lower-bound YS (MPa)"),
-        (fig.add_subplot(gs[1, 3:6]), "lcb_uts", pareto_uts, "e", "Lower-bound UTS (MPa)"),
+        (fig.add_subplot(bottom_gs[0, 0]), "lcb_ys", pareto_ys, "d", "Lower-bound YS (MPa)"),
+        (fig.add_subplot(bottom_gs[0, 1]), "lcb_uts", pareto_uts, "e", "Lower-bound UTS (MPa)"),
     ]:
         label(ax, letter)
+        density = ax.hexbin(all_supported.lcb_el, all_supported[strength],
+                            gridsize=(52, 34), mincnt=1, bins="log", cmap="RdBu_r",
+                            linewidths=0, rasterized=True, zorder=1)
+        density_maps.append(density)
+        assert int(density.get_array().sum()) == len(all_supported)
         for grade in GRADES:
             q = all_supported[all_supported.grade == grade]
             p = nondominated_fast(q, "lcb_el", strength)
-            ax.scatter(q.lcb_el, q[strength], s=3, color=L[grade], alpha=0.10,
-                       edgecolor="none", rasterized=True)
+            # Candidate density uses actual locations and retains multiplicity.
+            pass
             ax.scatter(p.lcb_el, p[strength], s=17, facecolor="white",
                        edgecolor=C[grade], marker=M[grade], lw=0.8, zorder=5)
         ax.set_xlabel("Lower-bound EL (%)")
@@ -524,7 +532,16 @@ def fig5(tr, ex, candidates, pareto_ys, pareto_uts):
     handles = [Line2D([0], [0], marker=M[g], color=C[g], lw=0, label=g, ms=4) for g in GRADES]
     fig.legend(handles=handles, ncol=4, loc="upper center", bbox_to_anchor=(0.53, 0.995),
                columnspacing=0.8, handletextpad=0.25)
-    fig.subplots_adjust(left=0.10, right=0.99, bottom=0.09, top=0.91)
+    fig.subplots_adjust(left=0.10, right=0.985, bottom=0.20, top=0.91)
+    shared_norm = mpl.colors.LogNorm(vmin=1, vmax=max(float(d.get_array().max()) for d in density_maps))
+    for density in density_maps:
+        density.set_norm(shared_norm)
+    cax = fig.add_axes([0.38, 0.060, 0.30, 0.016])
+    cb = fig.colorbar(density_maps[0], cax=cax, orientation="horizontal")
+    cb.set_ticks([1, 10, 100, 1000])
+    cb.set_ticklabels(["1", "10", "100", "1000"])
+    cb.set_label("Candidates / bin", fontsize=6)
+    cb.ax.tick_params(labelsize=5.5)
     save(fig, "fig5_observed_and_supported_design_fronts")
 
 
@@ -547,7 +564,7 @@ def fig6(tr, state):
     axes = fig.subplots(2, 2, sharex=True)
     targets = [
         ("yield_strength_mpa", "YS", "o", "#2E6B9A"),
-        ("delta_strength_mpa", "UTS-YS", "s", "#C58E12"),
+        ("delta_strength_mpa", "Δσ", "s", "#C58E12"),
         ("elongation_pct", "EL", "^", "#78872B"),
     ]
     for ax, grade, letter in zip(axes.ravel(), GRADES, "abcd"):
@@ -576,6 +593,8 @@ def fig6(tr, state):
         ax.invert_yaxis()
         ax.axvline(0, color=GREY, lw=0.7, ls="--")
         ax.set_xlim(-3.2, 3.2)
+        ax.set_xticks([-2, 0, 2])
+        ax.tick_params(axis="x", labelbottom=True)
         ax.set_title(grade, loc="left", color=C[grade], weight="bold")
         label(ax, letter)
     handles = [Line2D([0], [0], marker=x[2], color=x[3], lw=0, label=x[1], ms=4) for x in targets]
@@ -587,7 +606,7 @@ def fig6(tr, state):
     save(fig, "fig6_process_state_partition")
 
 
-def fig7(pred):
+def legacy_fig7(pred):
     fig = figmm(96)
     gs = fig.add_gridspec(2, 6, height_ratios=[1, .86], hspace=.58, wspace=.92)
     specs = [
@@ -640,6 +659,103 @@ def fig7(pred):
     save(fig, "fig7_trial_feedback")
 
 
+
+def fig4(tr, ale):
+    """Same grouped validation across feature sets, plus observed product sizes."""
+    metrics = pd.read_csv(OLD / "data/nested_v1_full_pooled_metrics.csv")
+    metrics = metrics[(metrics.scheme == "condition") &
+                      metrics.model.isin(["elasticnet", "pls", "xgb", "gpr"])]
+    fig, axes = plt.subplots(2, 2, figsize=(145 * MM, 100 * MM))
+    palette = ["#A6BDD5", "#3690C0", "#045A8D"]
+    sets = ["composition", "process", "joint"]
+    specs = [("yield_strength_mpa", "YS RMSE (MPa)"),
+             ("delta_strength_mpa", "Δσ RMSE (MPa)"),
+             ("elongation_pct", "EL RMSE (%)")]
+    records = []
+    for ax, (target, xlab), letter in zip(axes.ravel()[:3], specs, "abc"):
+        q = metrics[metrics.target == target].sort_values("rmse").groupby("feature_set").first().loc[sets]
+        for y, (name, row) in enumerate(q.iterrows()):
+            ax.plot([0, row.rmse], [y, y], color=palette[y], lw=2.4, zorder=1)
+            ax.scatter(row.rmse, y, s=30, color=palette[y], zorder=3)
+            ax.annotate(f"{row.rmse:.2f}", (row.rmse, y), xytext=(5, 0),
+                        textcoords="offset points", ha="left", va="center", fontsize=6.2)
+            records.append({"target": target, "feature_set": name, "model": row.model, "rmse": row.rmse})
+        ax.set_yticks(range(3), ["Composition", "Process", "Joint"])
+        ax.set_ylim(2.55, -0.55)
+        ax.set_xlim(0, q.rmse.max() * 1.35)
+        ax.set_xlabel(xlab)
+        label(ax, letter)
+    ax = axes[1, 1]
+    for g in GRADES:
+        q = np.sort(tr.loc[tr.grade == g, "specimen_thickness_mm"].to_numpy(float))
+        ax.step(q, np.arange(1, len(q)+1)/len(q), where="post", color=C[g], lw=1.2,
+                label=g)
+    ax.set_xscale("log")
+    ax.set_xticks([3, 10, 30, 100, 250])
+    ax.set_xticklabels(["3", "10", "30", "100", "250"])
+    ax.set_ylim(0, 1.03)
+    ax.set_xlabel("Product thickness (mm)")
+    ax.set_ylabel("Cumulative fraction")
+    ax.legend(loc="lower right", ncol=2, fontsize=5.8, handlelength=1.2)
+    label(ax, "d")
+    fig.subplots_adjust(left=.19, right=.985, bottom=.12, top=.95, wspace=.62, hspace=.64)
+    pd.DataFrame(records).to_csv(DATA / "fig4_feature_comparison.csv", index=False)
+    save(fig, "fig4_composition_process_representation")
+
+
+def fig7(pred):
+    """Engineering-interval rectangles, not distributional box plots."""
+    from matplotlib.patches import Rectangle
+    fig = figmm(105)
+    gs = fig.add_gridspec(2, 6, height_ratios=[1, .85], hspace=.72, wspace=1.25)
+    specs = [("yield_strength_mpa", "YS (MPa)", "YS", "MPa"),
+             ("ultimate_tensile_strength_mpa", "UTS (MPa)", "UTS", "MPa"),
+             ("elongation_pct", "EL (%)", "EL", "%")]
+    for k, (target, ylab, title, unit) in enumerate(specs):
+        ax = fig.add_subplot(gs[0, 2*k:2*k+2])
+        q = pred[pred.target == target].set_index("grade").loc[GRADES]
+        for j, r in enumerate(q.itertuples()):
+            ax.add_patch(Rectangle((j-.26, r.interval_low), .52,
+                                  r.interval_high-r.interval_low,
+                                  facecolor="#C6DBEF", edgecolor="#6BAED6", lw=.8, zorder=1))
+            ax.plot([j-.26, j+.26], [r.predicted, r.predicted], color="#2171B5", lw=1.2, zorder=2)
+            ax.scatter(j, r.measured, marker="D", color="#08306B", s=18, zorder=5)
+        ax.set_xticks(range(4), GRADES, rotation=30, ha="right", rotation_mode="anchor")
+        ax.set_xlim(-.6, 3.6)
+        lo, hi = q.interval_low.min(), q.interval_high.max()
+        pad = (hi-lo)*.12
+        ax.set_ylim(min(lo, q.measured.min())-pad, max(hi, q.measured.max())+pad)
+        ax.set_ylabel(ylab)
+        ax.set_title(f"RMSE = {q.four_sample_rmse.iloc[0]:.2f} {unit}", fontsize=6.3, pad=8)
+        label(ax, "abc"[k])
+    handles = [Line2D([0], [0], marker="D", color="#08306B", lw=0, label="Measured", ms=4),
+               Line2D([0], [0], color="#2171B5", lw=1.2, label="Predicted"),
+               Rectangle((0,0), 1, 1, facecolor="#C6DBEF", edgecolor="#6BAED6", label="Engineering band")]
+    fig.legend(handles=handles, ncol=3, loc="upper center", bbox_to_anchor=(.54, 1), fontsize=6.0)
+    bottom = gs[1, :].subgridspec(1, 2, wspace=.55)
+    for i, (col, title, lim, letter) in enumerate([
+        ("relative_error_pct", "Relative error (%)", 20, "d"),
+        ("error", "Residual / CV-RMSE", 1.6, "e")]):
+        ax = fig.add_subplot(bottom[0, i])
+        matrix = np.zeros((4, 3))
+        for gi, grade in enumerate(GRADES):
+            for ti, (target, _, _, _) in enumerate(specs):
+                r = pred[(pred.grade == grade) & (pred.target == target)].iloc[0]
+                matrix[gi, ti] = r.relative_error_pct if col == "relative_error_pct" else r.error/r.cv_rmse
+        im = ax.imshow(matrix, cmap="RdBu_r", vmin=-lim, vmax=lim, aspect="auto")
+        ax.set_xticks(range(3), [s[2] for s in specs]); ax.set_yticks(range(4), GRADES)
+        ax.set_title(title, loc="left", fontsize=7)
+        for y in range(4):
+            for x in range(3):
+                txt = f"{matrix[y,x]:+.1f}" if col == "relative_error_pct" else f"{matrix[y,x]:+.2f}"
+                ax.text(x,y,txt,ha="center",va="center",fontsize=5.7,
+                        color=contrast_text_color(im.cmap(im.norm(matrix[y,x]))))
+        fig.colorbar(im, ax=ax, fraction=.03, pad=.03)
+        label(ax, letter)
+    fig.subplots_adjust(left=.10, right=.985, bottom=.09, top=.88)
+    save(fig, "fig7_trial_feedback")
+
+
 def main():
     DATA.mkdir(parents=True, exist_ok=True)
     FIG.mkdir(parents=True, exist_ok=True)
@@ -649,6 +765,7 @@ def main():
     fig2(primary, library)
     fig3(tr, ex)
     fig4(tr, ale)
+    thickness_figure(tr, ale)
     fig5(tr, ex, candidates, pareto_ys, pareto_uts)
     fig6(tr, state)
     fig7(pred)
@@ -657,7 +774,7 @@ def main():
         "n_modelling": len(tr),
         "n_trials": len(ex),
         "main_figures": 7,
-        "panel_counts": {"fig1": 5, "fig2": 4, "fig3": 4, "fig4": 6,
+        "panel_counts": {"fig1": 5, "fig2": 4, "fig3": 4, "fig4": 4,
                          "fig5": 5, "fig6": 4, "fig7": 5},
         "formats": ["svg", "pdf", "tiff", "png"],
         "exclusions": "none",
