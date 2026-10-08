@@ -230,6 +230,14 @@ def fig1(tr, ex, identity, variance):
     fig.subplots_adjust(left=0.10, right=0.995, top=0.97, bottom=0.055)
     pos_b = ax_b.get_position()
     ax_b.set_position([pos_b.x0 + 0.035, pos_b.y0, pos_b.width - 0.035, pos_b.height])
+    # Use common figure coordinates to align the left edges of a and e.
+    label_a = next(t for t in fig.axes[0].texts if t.get_text() == "a")
+    label_e = next(t for t in fig.axes[-1].texts if t.get_text() == "e")
+    display_a = label_a.get_transform().transform(label_a.get_position())
+    display_e = label_e.get_transform().transform(label_e.get_position())
+    xy = fig.transFigure.inverted().transform([display_a[0], display_e[1]])
+    label_e.set_transform(fig.transFigure)
+    label_e.set_position(xy)
     save(fig, "fig1_hierarchical_material_space")
     raw.reset_index().to_csv(DATA / "fig1_raw_composition_medians.csv", index=False, encoding="utf-8-sig")
 
@@ -249,7 +257,8 @@ def fig2(primary, library):
     })
     y = np.arange(len(counts))
     ax.barh(y, counts.values, color=[BLUE, "#8AA9C2", "#C58E12", "#78872B"], height=0.58)
-    ax.set_yticks(y, counts.index)
+    ax.set_yticks(y, counts.index, rotation=30, ha="right", va="center",
+                  rotation_mode="anchor")
     ax.invert_yaxis()
     ax.set_xlabel("Candidate descriptors")
     for yi, v in zip(y, counts.values):
@@ -536,7 +545,9 @@ def fig5(tr, ex, candidates, pareto_ys, pareto_uts):
     shared_norm = mpl.colors.LogNorm(vmin=1, vmax=max(float(d.get_array().max()) for d in density_maps))
     for density in density_maps:
         density.set_norm(shared_norm)
-    cax = fig.add_axes([0.38, 0.060, 0.30, 0.016])
+    # The upper-right of panel d contains no candidate cloud.
+    cax = density_maps[0].axes.inset_axes([0.55, 0.87, 0.41, 0.037])
+    cax.set_zorder(30)
     cb = fig.colorbar(density_maps[0], cax=cax, orientation="horizontal")
     cb.set_ticks([1, 10, 100, 1000])
     cb.set_ticklabels(["1", "10", "100", "1000"])
@@ -753,6 +764,30 @@ def fig7(pred):
         fig.colorbar(im, ax=ax, fraction=.03, pad=.03)
         label(ax, letter)
     fig.subplots_adjust(left=.10, right=.985, bottom=.09, top=.88)
+    # Reduce the actual white gap between labelled rows to one quarter.
+    fig.set_dpi(300)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    top_axes = fig.axes[:3]
+    lower_axes = fig.axes[3:]
+    upper_bottom = min(ax.get_tightbbox(renderer).y0 for ax in top_axes)
+    lower_top = max(ax.get_tightbbox(renderer).y1 for ax in lower_axes)
+    original_gap = upper_bottom - lower_top
+    assert original_gap > 0
+    offset = original_gap * 0.75 / fig.bbox.height
+    for ax in lower_axes:
+        pos = ax.get_position()
+        ax.set_axes_locator(None)
+        ax.set_position([pos.x0, pos.y0 + offset, pos.width, pos.height])
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    new_gap = (min(ax.get_tightbbox(renderer).y0 for ax in top_axes)
+               - max(ax.get_tightbbox(renderer).y1 for ax in lower_axes))
+    assert abs(new_gap - original_gap / 4) < 0.5
+    (DATA / "fig7_row_spacing.json").write_text(json.dumps({
+        "before_px": original_gap, "after_px": new_gap,
+        "ratio": new_gap / original_gap, "measurement_dpi": 300
+    }, indent=2), encoding="utf-8")
     save(fig, "fig7_trial_feedback")
 
 
