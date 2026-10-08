@@ -672,46 +672,104 @@ def legacy_fig7(pred):
 
 
 def fig4(tr, ale):
-    """Same grouped validation across feature sets, plus observed product sizes."""
+    """Target-wise relative grouped-validation RMSE and observed product sizes."""
+    from matplotlib.ticker import NullLocator
     metrics = pd.read_csv(OLD / "data/nested_v1_full_pooled_metrics.csv")
     metrics = metrics[(metrics.scheme == "condition") &
                       metrics.model.isin(["elasticnet", "pls", "xgb", "gpr"])]
-    fig, axes = plt.subplots(2, 2, figsize=(145 * MM, 100 * MM))
-    palette = ["#A6BDD5", "#3690C0", "#045A8D"]
-    sets = ["composition", "process", "joint"]
-    specs = [("yield_strength_mpa", "YS RMSE (MPa)"),
-             ("delta_strength_mpa", "Δσ RMSE (MPa)"),
-             ("elongation_pct", "EL RMSE (%)")]
+    targets = ["yield_strength_mpa", "delta_strength_mpa", "elongation_pct"]
+    features = ["composition", "process", "joint"]
     records = []
-    for ax, (target, xlab), letter in zip(axes.ravel()[:3], specs, "abc"):
-        q = metrics[metrics.target == target].sort_values("rmse").groupby("feature_set").first().loc[sets]
-        for y, (name, row) in enumerate(q.iterrows()):
-            ax.plot([0, row.rmse], [y, y], color=palette[y], lw=2.4, zorder=1)
-            ax.scatter(row.rmse, y, s=30, color=palette[y], zorder=3)
-            ax.annotate(f"{row.rmse:.2f}", (row.rmse, y), xytext=(5, 0),
-                        textcoords="offset points", ha="left", va="center", fontsize=6.2)
-            records.append({"target": target, "feature_set": name, "model": row.model, "rmse": row.rmse})
-        ax.set_yticks(range(3), ["Composition", "Process", "Joint"])
-        ax.set_ylim(2.55, -0.55)
-        ax.set_xlim(0, q.rmse.max() * 1.35)
-        ax.set_xlabel(xlab)
-        label(ax, letter)
-    ax = axes[1, 1]
-    for g in GRADES:
-        q = np.sort(tr.loc[tr.grade == g, "specimen_thickness_mm"].to_numpy(float))
-        ax.step(q, np.arange(1, len(q)+1)/len(q), where="post", color=C[g], lw=1.2,
-                label=g)
-    ax.set_xscale("log")
-    ax.set_xticks([3, 10, 30, 100, 250])
-    ax.set_xticklabels(["3", "10", "30", "100", "250"])
-    ax.set_ylim(0, 1.03)
-    ax.set_xlabel("Product thickness (mm)")
-    ax.set_ylabel("Cumulative fraction")
-    ax.legend(loc="lower right", ncol=2, fontsize=5.8, handlelength=1.2)
-    label(ax, "d")
-    fig.subplots_adjust(left=.19, right=.985, bottom=.12, top=.95, wspace=.62, hspace=.64)
-    pd.DataFrame(records).to_csv(DATA / "fig4_feature_comparison.csv", index=False)
-    save(fig, "fig4_composition_process_representation")
+    for target in targets:
+        q = metrics[metrics.target == target].sort_values("rmse").groupby("feature_set").first().loc[features]
+        for feature, row in q.iterrows():
+            records.append({"target": target, "feature_set": feature,
+                            "model": row.model, "rmse": row.rmse})
+    m = pd.DataFrame(records)
+    p = m.pivot(index="target", columns="feature_set", values="rmse").loc[targets, features]
+    assert np.isfinite(p.to_numpy()).all() and (p.composition > 0).all()
+    v = p.div(p.composition, axis=0)
+    assert np.allclose(v.composition, 1)
+    raw = tr
+    FIG.mkdir(parents=True, exist_ok=True)
+    DATA.mkdir(parents=True, exist_ok=True)
+    m.to_csv(DATA / "fig4_feature_comparison.csv", index=False)
+    v.to_csv(DATA / "fig4_relative_rmse.csv")
+    # Preserve the approved two-panel styling without changing other figures.
+    with mpl.rc_context(mpl.rcParamsDefault):
+        plt.rcParams.update({'font.family':'sans-serif','font.sans-serif':['Arial','Helvetica','DejaVu Sans'],
+        'font.size':7,'axes.labelsize':7,'xtick.labelsize':6.5,'ytick.labelsize':6.5,'legend.fontsize':6.2,
+        'axes.spines.top':False,'axes.spines.right':False,'axes.linewidth':.8,'svg.fonttype':'none','pdf.fonttype':42})
+        fig,axes=plt.subplots(1,2,figsize=(145/25.4,67/25.4),gridspec_kw={'width_ratios':[1.13,1]})
+        a,b=axes;xs=np.arange(3);w=.23
+        for j,(f,lab,col) in enumerate(zip(features,['Composition','Process','Joint'],['#B8D3E6','#559CC7','#164C73'])):
+            vals=v[f].to_numpy()
+            bars=a.bar(xs+(j-1)*w,vals,width=w*.9,color=col,label=lab,zorder=3)
+            for k,(bar,y) in enumerate(zip(bars,vals)):
+                extra=.055 if j==2 and abs(v.iloc[k,2]-v.iloc[k,1])<.06 else 0
+                a.text(bar.get_x()+bar.get_width()/2,y+.022+extra,f'{y:.2f}',ha='center',va='bottom',fontsize=6)
+        a.axhline(1,color='#808080',lw=.7,ls='--',zorder=1)
+        a.set_xticks(xs,['YS','Δσ','EL']);a.set_ylim(0,1.17);a.set_yticks([0,.25,.5,.75,1])
+        a.set_xlabel('Prediction target');a.set_ylabel('Relative RMSE')
+        a.legend(ncol=3,loc='lower center',bbox_to_anchor=(.5,1.17),frameon=False,handlelength=1.1,columnspacing=.65,handletextpad=.35)
+        a.text(.5,1.055,'Composition-only RMSE = 1 for each target',transform=a.transAxes,ha='center',va='bottom',fontsize=5.7,color='#555555')
+        a.text(-.16,1.30,'a',transform=a.transAxes,fontsize=9,fontweight='bold',va='top')
+        colors={'2024':'#C58E12','5083':'#2E6B9A','6082':'#78872B','7075':'#AA5578'}
+        for g,c in colors.items():
+            values=np.sort(raw.loc[raw.grade==g,'specimen_thickness_mm'].to_numpy(float))
+            assert np.all(values > 0)
+            b.step(values,np.arange(1,len(values)+1)/len(values),where='post',color=c,lw=1.1,label=g)
+        b.set_xscale('log');b.set_xticks([3,10,30,100,250]);b.set_xticklabels(['3','10','30','100','250']);b.xaxis.set_minor_locator(NullLocator())
+        b.set_ylim(0,1.03);b.set_xlabel('Product thickness (mm)');b.set_ylabel('Cumulative fraction')
+        b.legend(ncol=2,loc='lower right',frameon=False,fontsize=6,handlelength=1.2,columnspacing=.8,handletextpad=.3)
+        b.text(-.18,1.30,'b',transform=b.transAxes,fontsize=9,fontweight='bold',va='top')
+        fig.subplots_adjust(left=.09,right=.992,bottom=.20,top=.77,wspace=.48)
+        # Compress rendered clearances to one quarter of the preceding preview.
+        fig.set_dpi(300)
+        fig.canvas.draw()
+        renderer = fig.canvas.get_renderer()
+        note = next(t for t in a.texts if t.get_text().startswith('Composition-only RMSE'))
+        legend = a.get_legend()
+        ab = a.get_window_extent(renderer)
+        nb = note.get_window_extent(renderer)
+        lb = legend.get_window_extent(renderer)
+        old_note_axes_gap = nb.y0 - ab.y1
+        old_legend_note_gap = lb.y0 - nb.y1
+        assert old_note_axes_gap > 0 and old_legend_note_gap > 0
+        note.set_position((.5, (ab.y1 + old_note_axes_gap / 4 - ab.y0) / ab.height))
+        fig.canvas.draw()
+        renderer = fig.canvas.get_renderer()
+        nb = note.get_window_extent(renderer)
+        lb = legend.get_window_extent(renderer)
+        target_legend_bottom = nb.y1 + old_legend_note_gap / 4
+        legend.set_bbox_to_anchor((.5, 1.17 + (target_legend_bottom - lb.y0) / ab.height))
+        fig.canvas.draw()
+        renderer = fig.canvas.get_renderer()
+        nb = note.get_window_extent(renderer)
+        lb = legend.get_window_extent(renderer)
+        new_note_axes_gap = nb.y0 - ab.y1
+        new_legend_note_gap = lb.y0 - nb.y1
+        assert abs(new_note_axes_gap - old_note_axes_gap / 4) < .2
+        assert abs(new_legend_note_gap - old_legend_note_gap / 4) < .2
+        label_y = (lb.y1 - ab.y0) / ab.height
+        for ax, letter in [(a,'a'),(b,'b')]:
+            panel_label = next(t for t in ax.texts if t.get_text() == letter)
+            panel_label.set_position((panel_label.get_position()[0], label_y))
+        (DATA/'fig4_spacing_check.json').write_text(json.dumps({
+            'legend_note_gap_before_px': old_legend_note_gap,
+            'legend_note_gap_after_px': new_legend_note_gap,
+            'note_axes_gap_before_px': old_note_axes_gap,
+            'note_axes_gap_after_px': new_note_axes_gap,
+            'ratio': 0.25
+        },indent=2))
+        fig.savefig(FIG/'fig4_composition_process_representation.png', dpi=300, bbox_inches='tight', pad_inches=.035)
+        fig.savefig(FIG/'fig4_composition_process_representation.pdf', bbox_inches='tight', pad_inches=.035)
+        fig.savefig(FIG/'fig4_composition_process_representation.svg', bbox_inches='tight', pad_inches=.035)
+
+        fig.savefig(FIG/"fig4_composition_process_representation.tiff", dpi=600, bbox_inches="tight", pad_inches=.035, pil_kwargs={"compression":"tiff_lzw"})
+        plt.close(fig)
+
+
 
 
 def fig7(pred):
