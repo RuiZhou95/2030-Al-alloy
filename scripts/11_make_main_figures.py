@@ -60,6 +60,30 @@ mpl.rcParams.update({
 })
 
 
+def compress_horizontal_gap(fig, left, right, ratio, audit_name):
+    """Reduce the rendered inter-panel clearance, retaining outer axes edges."""
+    fig.set_dpi(300)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    before = right.get_tightbbox(renderer).x0 - left.get_tightbbox(renderer).x1
+    assert before > 0
+    target = before * ratio
+    lp, rp = left.get_position().frozen(), right.get_position().frozen()
+    delta = 0.0
+    for _ in range(30):
+        fig.canvas.draw()
+        renderer = fig.canvas.get_renderer()
+        gap = right.get_tightbbox(renderer).x0 - left.get_tightbbox(renderer).x1
+        if abs(gap - target) < 0.02:
+            break
+        delta += (gap - target) / fig.bbox.width * 0.8
+        left.set_position([lp.x0, lp.y0, lp.width + delta/2, lp.height])
+        right.set_position([rp.x0 - delta/2, rp.y0, rp.width + delta/2, rp.height])
+    assert abs(gap - target) < 0.1, (before, target, gap)
+    (DATA / audit_name).write_text(json.dumps({"before_px": before,
+        "after_px": gap, "ratio": gap/before, "measurement_dpi": 300}, indent=2))
+
+
 def figmm(height_mm: float):
     return plt.figure(figsize=(FIG_WIDTH_MM * MM, height_mm * MM))
 
@@ -238,6 +262,24 @@ def fig1(tr, ex, identity, variance):
     xy = fig.transFigure.inverted().transform([display_a[0], display_e[1]])
     label_e.set_transform(fig.transFigure)
     label_e.set_position(xy)
+    # Raise the flowchart so box tops align with the fixed panel-e label.
+    fig.set_dpi(300)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    flow_ax = fig.axes[-1]
+    boxes = [p for p in flow_ax.patches if isinstance(p, FancyBboxPatch)]
+    box_top = max(p.get_window_extent(renderer).y1 for p in boxes)
+    label_top = label_e.get_window_extent(renderer).y1
+    shift = (label_top - box_top) / fig.bbox.height
+    pos = flow_ax.get_position()
+    flow_ax.set_position([pos.x0, pos.y0 + shift, pos.width, pos.height])
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    new_top = max(p.get_window_extent(renderer).y1 for p in boxes)
+    assert abs(new_top - label_top) < 0.1
+    (DATA / "fig1e_alignment.json").write_text(json.dumps({
+        "upward_shift_px": shift*fig.bbox.height,
+        "box_label_top_difference_px": new_top-label_top}, indent=2))
     save(fig, "fig1_hierarchical_material_space")
     raw.reset_index().to_csv(DATA / "fig1_raw_composition_medians.csv", index=False, encoding="utf-8-sig")
 
@@ -392,6 +434,26 @@ def fig3(tr, ex):
     cax = fig.add_axes([0.90, 0.20, 0.018, 0.60])
     cb = fig.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax)
     cb.set_label("EL (%)")
+    # Move only the 2024 legend by two rendered Solution 1 h text heights.
+    fig.set_dpi(300)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    legend = axes.ravel()[0].get_legend()
+    line = next(t for t in legend.get_texts() if t.get_text() == "Solution 1 h")
+    text_height = line.get_window_extent(renderer).height
+    old_box = legend.get_window_extent(renderer).frozen()
+    xy = fig.transFigure.inverted().transform((old_box.x0, old_box.y0 + 2*text_height))
+    legend._set_loc(3)
+    legend.borderaxespad = 0
+    legend.set_bbox_to_anchor(xy, transform=fig.transFigure)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    new_box = legend.get_window_extent(renderer)
+    assert abs(new_box.y0-old_box.y0-2*text_height) < 0.1
+    (DATA / "fig3a_legend_shift.json").write_text(json.dumps({
+        "character_height_px": text_height,
+        "upward_shift_px": new_box.y0-old_box.y0,
+        "character_height_multiple": (new_box.y0-old_box.y0)/text_height}, indent=2))
     save(fig, "fig3_branch_chemistry_state_property")
     pd.concat(out).to_csv(DATA / "fig3_branch_points_v2.csv", index=False, encoding="utf-8-sig")
 
@@ -553,6 +615,8 @@ def fig5(tr, ex, candidates, pareto_ys, pareto_uts):
     cb.set_ticklabels(["1", "10", "100", "1000"])
     cb.set_label("Candidates / bin", fontsize=6)
     cb.ax.tick_params(labelsize=5.5)
+    compress_horizontal_gap(fig, density_maps[0].axes, density_maps[1].axes,
+                            0.5, "fig5de_panel_gap.json")
     save(fig, "fig5_observed_and_supported_design_fronts")
 
 
@@ -762,6 +826,7 @@ def fig4(tr, ale):
             'note_axes_gap_after_px': new_note_axes_gap,
             'ratio': 0.25
         },indent=2))
+        compress_horizontal_gap(fig, a, b, 0.25, "fig4_panel_gap.json")
         fig.savefig(FIG/'fig4_composition_process_representation.png', dpi=300, bbox_inches='tight', pad_inches=.035)
         fig.savefig(FIG/'fig4_composition_process_representation.pdf', bbox_inches='tight', pad_inches=.035)
         fig.savefig(FIG/'fig4_composition_process_representation.svg', bbox_inches='tight', pad_inches=.035)
