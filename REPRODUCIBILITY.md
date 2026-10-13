@@ -16,6 +16,7 @@ Audit date: 2026-10-13. Release: 1.1.0. This record concerns computational repro
 | Candidate reference data | 48,000 rows; 46,705 satisfy the released support and feasibility flags |
 | Final figures | Seven main and seven supplementary PNGs regenerated and byte-identical to retained final working-source PNGs; figures are not distributed |
 | Release tests | 11 tests passed, covering manifests, identities, physical inequalities, key numeric results, provenance disclosure, compilation and release/security boundaries |
+| Clean-clone run | A fresh clone with no pre-existing outputs passed the manifest/tests, historical features and RF prediction replay, materials/descriptor recalculation, 12-table comparison and all 14 figure-generation steps |
 | Data security scan | No private absolute paths, email-address strings, private-key headers or common access-token patterns in released data files |
 
 The RF replay RMSE values are 16.766003187839008 MPa (YS), 15.980032142896633 MPa (UTS), and 1.5418439435891311 percentage points (EL). They round to 16.77, 15.98 and 1.54. Historical CV-RMSE scales are 28.064686358910976 MPa, 25.54117720368965 MPa and 1.7412082653759184 percentage points, respectively.
