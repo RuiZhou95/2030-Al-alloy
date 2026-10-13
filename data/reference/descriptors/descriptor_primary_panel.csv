@@ -1,0 +1,41 @@
+﻿grade,descriptor,label,family,median_raw,branch_scaled_0_1,grade_eta2,best_target,best_target_short,rho,sign_stability,within_grade_score,within_grade_pass,branch_coordinate
+2024,wt_Mg,Mg (wt.%),raw composition,1.5995,0.18434809348093475,0.9992936900316071,yield_strength_mpa,YS,0.0359988552643593,,0.0,False,True
+2024,phasecap_S_Al2CuMg,S capacity,phase-stoichiometric capacity,0.6580950421723926,1.0,0.9996409606605184,yield_strength_mpa,YS,0.0359988552643593,,0.0,False,True
+2024,phasecap_beta_Mg2Si,Mg2Si capacity,phase-stoichiometric capacity,0.0213637172868079,0.0,0.996467296775456,yield_strength_mpa,YS,-0.1570282151087954,0.88,0.13818482929574,False,True
+2024,phaseimbalance_beta,Mg2Si imbalance,phase-stoichiometric excess,0.30756515920953953,0.17617722630822874,0.9987240372627199,yield_strength_mpa,YS,0.1741810114372423,0.902,0.1571112723163925,False,True
+2024,phasecap_eta_MgZn2,MgZn2 capacity,phase-stoichiometric capacity,0.0035178953808504,0.006380410415588949,0.9999073686809755,yield_strength_mpa,YS,0.0722500961253193,,0.0,False,True
+2024,phaseimbalance_eta,MgZn2 imbalance,phase-stoichiometric excess,0.6544953217337359,0.18250152881284062,0.9991958764936422,yield_strength_mpa,YS,0.0153033780877763,,0.0,False,True
+2024,dispersoid_MnCrZr_wt,Mn+Cr+Zr,aggregate load,0.618,0.5051094890510949,0.9870770417322349,elongation_pct,EL,0.1715712684689437,0.933,0.1600759934815244,False,True
+2024,impurity_FeSi_wt,Fe+Si,aggregate load,0.2105,0.0,0.9963497341492757,yield_strength_mpa,YS,-0.2911182428462459,0.986,0.2870425874463985,True,True
+2024,eta_total_ZnMgCu_wt,Zn+Mg+Cu,aggregate load,6.2844999999999995,0.5896375990939977,0.999725331673696,yield_strength_mpa,YS,0.1342032155175642,,0.0,False,True
+2024,total_solute_wt,Total solute,aggregate load,7.17805,0.5290190366022591,0.9992407449610264,yield_strength_mpa,YS,-0.2543470211652651,0.987,0.2510405098901166,True,True
+5083,wt_Mg,Mg (wt.%),raw composition,4.252000000000001,1.0,0.9992936900316071,yield_strength_mpa,YS,-0.0035839049212937,,0.0,False,True
+5083,phasecap_S_Al2CuMg,S capacity,phase-stoichiometric capacity,0.0009441979038806,0.0,0.9996409606605184,delta_strength_mpa,DeltaSigma,0.3037894443443441,0.946,0.2873848143497495,True,True
+5083,phasecap_beta_Mg2Si,Mg2Si capacity,phase-stoichiometric capacity,0.0213637172868079,0.0,0.996467296775456,yield_strength_mpa,YS,0.0635562472707483,,0.0,False,True
+5083,phaseimbalance_beta,Mg2Si imbalance,phase-stoichiometric excess,0.8525740162598208,1.0,0.9987240372627199,elongation_pct,EL,0.152893715059029,0.82,0.1253728463484038,False,True
+5083,phasecap_eta_MgZn2,MgZn2 capacity,phase-stoichiometric capacity,0.000688283878862,0.0,0.9999073686809755,yield_strength_mpa,YS,-0.2747060889915902,0.942,0.258773135830078,True,True
+5083,phaseimbalance_eta,MgZn2 imbalance,phase-stoichiometric excess,1.7485165609448954,1.0,0.9991958764936422,yield_strength_mpa,YS,0.0166070282376236,,0.0,False,True
+5083,dispersoid_MnCrZr_wt,Mn+Cr+Zr,aggregate load,0.742,0.6861313868613139,0.9870770417322349,delta_strength_mpa,DeltaSigma,-0.1719885900352758,0.853,0.1467062673000903,False,True
+5083,impurity_FeSi_wt,Fe+Si,aggregate load,0.238,0.023080151070079727,0.9963497341492757,yield_strength_mpa,YS,-0.1277298608406104,,0.0,False,True
+5083,eta_total_ZnMgCu_wt,Zn+Mg+Cu,aggregate load,4.2675,0.3612117780294451,0.999725331673696,delta_strength_mpa,DeltaSigma,0.2268592482833849,0.908,0.2059881974413135,False,True
+5083,total_solute_wt,Total solute,aggregate load,5.293800000000001,0.25992888051068946,0.9992407449610264,yield_strength_mpa,YS,-0.0980823932929264,,0.0,False,True
+6082,wt_Mg,Mg (wt.%),raw composition,1.0,0.0,0.9992936900316071,yield_strength_mpa,YS,-0.0367610467000537,,0.0,False,True
+6082,phasecap_S_Al2CuMg,S capacity,phase-stoichiometric capacity,0.0103861769426871,0.014368054338142958,0.9996409606605184,delta_strength_mpa,DeltaSigma,0.256309308233143,0.978,0.2506705034520138,True,True
+6082,phasecap_beta_Mg2Si,Mg2Si capacity,phase-stoichiometric capacity,0.2057189878625797,1.0,0.996467296775456,yield_strength_mpa,YS,-0.0367610467000537,,0.0,False,True
+6082,phaseimbalance_beta,Mg2Si imbalance,phase-stoichiometric excess,0.191013211612542,0.0,0.9987240372627199,delta_strength_mpa,DeltaSigma,-0.3897467772581353,1.0,0.3897467772581353,True,True
+6082,phasecap_eta_MgZn2,MgZn2 capacity,phase-stoichiometric capacity,0.0009177118384827,0.0005173305742369846,0.9999073686809755,yield_strength_mpa,YS,-0.1583930899676016,0.925,0.1465136082200315,False,True
+6082,phaseimbalance_eta,MgZn2 imbalance,phase-stoichiometric excess,0.410261777884032,0.0,0.9991958764936422,yield_strength_mpa,YS,-0.0582081957555013,,0.0,False,True
+6082,dispersoid_MnCrZr_wt,Mn+Cr+Zr,aggregate load,0.957,1.0,0.9870770417322349,delta_strength_mpa,DeltaSigma,0.216403214226565,0.958,0.2073142792290493,False,True
+6082,impurity_FeSi_wt,Fe+Si,aggregate load,1.402,1.0,0.9963497341492757,delta_strength_mpa,DeltaSigma,-0.2092698740087434,0.976,0.2042473970325335,False,True
+6082,eta_total_ZnMgCu_wt,Zn+Mg+Cu,aggregate load,1.0779999999999998,0.0,0.999725331673696,delta_strength_mpa,DeltaSigma,0.240318373765214,0.982,0.2359926430374401,False,True
+6082,total_solute_wt,Total solute,aggregate load,3.4737,0.0,0.9992407449610264,yield_strength_mpa,YS,-0.0094218972888282,,0.0,False,True
+7075,wt_Mg,Mg (wt.%),raw composition,2.728,0.5313653136531364,0.9992936900316071,delta_strength_mpa,DeltaSigma,-0.165816567426797,0.96,0.1591839047297251,False,True
+7075,phasecap_S_Al2CuMg,S capacity,phase-stoichiometric capacity,0.2148050231328486,0.32543643075893913,0.9996409606605184,yield_strength_mpa,YS,0.0726853713961772,,0.0,False,True
+7075,phasecap_beta_Mg2Si,Mg2Si capacity,phase-stoichiometric capacity,0.029909204201531,0.04635336374183466,0.996467296775456,delta_strength_mpa,DeltaSigma,-0.4630590727594925,1.0,0.4630590727594925,True,True
+7075,phaseimbalance_beta,Mg2Si imbalance,phase-stoichiometric excess,0.5306750377239986,0.5134249546306668,0.9987240372627199,yield_strength_mpa,YS,-0.1987016366083302,0.979,0.1945289022395553,False,True
+7075,phasecap_eta_MgZn2,MgZn2 capacity,phase-stoichiometric capacity,0.4441725298256347,1.0,0.9999073686809755,yield_strength_mpa,YS,0.0912411923046278,,0.0,False,True
+7075,phaseimbalance_eta,MgZn2 imbalance,phase-stoichiometric excess,0.6782119080521081,0.20022355500588546,0.9991958764936422,delta_strength_mpa,DeltaSigma,-0.1608488382656982,0.947,0.1523238498376162,False,True
+7075,dispersoid_MnCrZr_wt,Mn+Cr+Zr,aggregate load,0.272,0.0,0.9870770417322349,yield_strength_mpa,YS,0.2003607561418841,0.954,0.1911441613593574,False,True
+7075,impurity_FeSi_wt,Fe+Si,aggregate load,0.26,0.04154427192614353,0.9963497341492757,yield_strength_mpa,YS,0.3164118462897039,0.999,0.3160954344434142,True,True
+7075,eta_total_ZnMgCu_wt,Zn+Mg+Cu,aggregate load,9.908,1.0,0.999725331673696,yield_strength_mpa,YS,0.1085051717159602,,0.0,False,True
+7075,total_solute_wt,Total solute,aggregate load,10.476,1.0,0.9992407449610264,delta_strength_mpa,DeltaSigma,-0.2475085345469072,0.99,0.2450334492014381,False,True

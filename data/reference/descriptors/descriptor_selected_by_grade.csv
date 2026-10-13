@@ -1,0 +1,41 @@
+﻿grade,rank,descriptor,best_target,target_short,rho,sign_stability,stability_score,passes_threshold,label,family,formula,physical_role
+2024,1,pair_sum_Zr_Fe,yield_strength_mpa,YS,-0.3183005779927896,0.997,0.3173456762588112,True,n(Zr)+n(Fe),systematic pair sum,n_Zr+n_Fe,Systematically generated pairwise molar load.
+2024,2,pair_balance_Si_Fe,yield_strength_mpa,YS,0.30927839726460227,0.995,0.30773200527827926,True,"balance(Si,Fe)",systematic pair balance,"min(n_Si,n_Fe)/(n_Si+n_Fe)",Dimensionless pair-balance coordinate.
+2024,3,pair_sum_Mn_Fe,yield_strength_mpa,YS,-0.3006689916040101,0.992,0.298263639671178,True,n(Mn)+n(Fe),systematic pair sum,n_Mn+n_Fe,Systematically generated pairwise molar load.
+2024,4,impurity_FeSi_wt,yield_strength_mpa,YS,-0.29111824284624593,0.986,0.2870425874463985,True,Fe+Si,aggregate load,Fe+Si (wt.%),Combined Fe-Si load relevant to constituent particles.
+2024,5,pair_balance_Zn_Fe,yield_strength_mpa,YS,0.2671989625184481,0.982,0.26238938119311606,True,"balance(Zn,Fe)",systematic pair balance,"min(n_Zn,n_Fe)/(n_Zn+n_Fe)",Dimensionless pair-balance coordinate.
+2024,6,mol_Al,yield_strength_mpa,YS,0.2578092295071731,0.995,0.2565201833596372,True,n(Al),molar composition,10*Al_wt_pct/M_Al,Elemental amount per kilogram of alloy.
+2024,7,pair_product_Cr_Fe,yield_strength_mpa,YS,-0.25333425954410976,0.975,0.247000903055507,True,n(Cr)x n(Fe),systematic pair product,n_Cr*n_Fe,Systematically generated pairwise co-presence term.
+2024,8,pair_sum_Cu_Fe,yield_strength_mpa,YS,-0.2244737029396848,0.972,0.2181884392573736,False,n(Cu)+n(Fe),systematic pair sum,n_Cu+n_Fe,Systematically generated pairwise molar load.
+2024,9,pair_balance_Zn_Cr,yield_strength_mpa,YS,-0.22497020812110546,0.963,0.21664631042062454,False,"balance(Zn,Cr)",systematic pair balance,"min(n_Zn,n_Cr)/(n_Zn+n_Cr)",Dimensionless pair-balance coordinate.
+2024,10,pair_balance_Cr_Zr,elongation_pct,EL,-0.21452733648970904,0.975,0.2091641530774663,False,"balance(Cr,Zr)",systematic pair balance,"min(n_Cr,n_Zr)/(n_Cr+n_Zr)",Dimensionless pair-balance coordinate.
+5083,1,pair_product_Zn_Fe,yield_strength_mpa,YS,-0.3906179086164219,0.99,0.38671172953025773,True,n(Zn)x n(Fe),systematic pair product,n_Zn*n_Fe,Systematically generated pairwise co-presence term.
+5083,2,pair_balance_Cu_Cr,delta_strength_mpa,DeltaSigma,0.35600724011408014,0.977,0.3478190735914563,True,"balance(Cu,Cr)",systematic pair balance,"min(n_Cu,n_Cr)/(n_Cu+n_Cr)",Dimensionless pair-balance coordinate.
+5083,3,pair_product_Cu_Fe,delta_strength_mpa,DeltaSigma,0.3401032898807163,0.977,0.33228091421345984,True,n(Cu)x n(Fe),systematic pair product,n_Cu*n_Fe,Systematically generated pairwise co-presence term.
+5083,4,pair_product_Cu_Zn,delta_strength_mpa,DeltaSigma,0.3087427969441286,0.955,0.2948493710816428,True,n(Cu)x n(Zn),systematic pair product,n_Cu*n_Zn,Systematically generated pairwise co-presence term.
+5083,5,pair_balance_Cu_Mg,delta_strength_mpa,DeltaSigma,0.3070492762266167,0.959,0.2944602559013254,True,"balance(Cu,Mg)",systematic pair balance,"min(n_Cu,n_Mg)/(n_Cu+n_Mg)",Dimensionless pair-balance coordinate.
+5083,6,pair_product_Cu_Mn,delta_strength_mpa,DeltaSigma,0.309035977604838,0.95,0.2935841787245961,True,n(Cu)x n(Mn),systematic pair product,n_Cu*n_Mn,Systematically generated pairwise co-presence term.
+5083,7,pair_product_Mg_Zn,yield_strength_mpa,YS,-0.30122029670783673,0.967,0.2912800269164781,True,n(Mg)x n(Zn),systematic pair product,n_Mg*n_Zn,Systematically generated pairwise co-presence term.
+5083,8,pair_product_Cu_Si,delta_strength_mpa,DeltaSigma,0.30328123662012424,0.938,0.28447779994967654,True,n(Cu)x n(Si),systematic pair product,n_Cu*n_Si,Systematically generated pairwise co-presence term.
+5083,9,pair_balance_Cu_Fe,elongation_pct,EL,0.29340551558118416,0.942,0.27638799567747546,True,"balance(Cu,Fe)",systematic pair balance,"min(n_Cu,n_Fe)/(n_Cu+n_Fe)",Dimensionless pair-balance coordinate.
+5083,10,pair_product_Si_Zn,yield_strength_mpa,YS,-0.27956693392286885,0.953,0.266427288028494,True,n(Si)x n(Zn),systematic pair product,n_Si*n_Zn,Systematically generated pairwise co-presence term.
+6082,1,pair_balance_Si_Mn,delta_strength_mpa,DeltaSigma,0.4215353045344879,1.0,0.4215353045344879,True,"balance(Si,Mn)",systematic pair balance,"min(n_Si,n_Mn)/(n_Si+n_Mn)",Dimensionless pair-balance coordinate.
+6082,2,phaseimbalance_beta,delta_strength_mpa,DeltaSigma,-0.38974677725813534,1.0,0.38974677725813534,True,Mg2Si imbalance,phase-stoichiometric excess,|n_Mg/2-n_Si|,Departure from Mg2Si molar balance.
+6082,3,pair_balance_Si_Zr,delta_strength_mpa,DeltaSigma,0.36575835879184837,1.0,0.36575835879184837,True,"balance(Si,Zr)",systematic pair balance,"min(n_Si,n_Zr)/(n_Si+n_Zr)",Dimensionless pair-balance coordinate.
+6082,4,pair_product_Mn_Zr,delta_strength_mpa,DeltaSigma,0.35810713132383276,0.999,0.3577490241925089,True,n(Mn)x n(Zr),systematic pair product,n_Mn*n_Zr,Systematically generated pairwise co-presence term.
+6082,5,pair_sum_Cu_Mn,delta_strength_mpa,DeltaSigma,0.3526137458374275,0.997,0.3515559045999152,True,n(Cu)+n(Mn),systematic pair sum,n_Cu+n_Mn,Systematically generated pairwise molar load.
+6082,6,pair_balance_Mn_Fe,yield_strength_mpa,YS,0.3242911137895006,0.997,0.32331824044813207,True,"balance(Mn,Fe)",systematic pair balance,"min(n_Mn,n_Fe)/(n_Mn+n_Fe)",Dimensionless pair-balance coordinate.
+6082,7,wt_Si,delta_strength_mpa,DeltaSigma,-0.32223025986456183,0.997,0.32126356908496817,True,Si (wt.%),raw composition,Si_wt_pct,Measured elemental mass fraction retained in the full model.
+6082,8,pair_sum_Cu_Cr,delta_strength_mpa,DeltaSigma,0.3196100429943662,0.996,0.3183316028223887,True,n(Cu)+n(Cr),systematic pair sum,n_Cu+n_Cr,Systematically generated pairwise molar load.
+6082,9,pair_balance_Zr_Fe,delta_strength_mpa,DeltaSigma,0.3202507459903519,0.992,0.3176887400224291,True,"balance(Zr,Fe)",systematic pair balance,"min(n_Zr,n_Fe)/(n_Zr+n_Fe)",Dimensionless pair-balance coordinate.
+6082,10,pair_product_Zn_Zr,delta_strength_mpa,DeltaSigma,0.31539593086421913,0.997,0.3144497430716265,True,n(Zn)x n(Zr),systematic pair product,n_Zn*n_Zr,Systematically generated pairwise co-presence term.
+7075,1,mol_Ti,yield_strength_mpa,YS,0.48542177083488547,1.0,0.48542177083488547,True,n(Ti),molar composition,10*Ti_wt_pct/M_Ti,Elemental amount per kilogram of alloy.
+7075,2,pair_product_Mg_Si,delta_strength_mpa,DeltaSigma,-0.47624523034533206,1.0,0.47624523034533206,True,n(Mg)x n(Si),systematic pair product,n_Mg*n_Si,Systematically generated pairwise co-presence term.
+7075,3,pair_sum_Si_Zn,delta_strength_mpa,DeltaSigma,-0.4111547378408447,1.0,0.4111547378408447,True,n(Si)+n(Zn),systematic pair sum,n_Si+n_Zn,Systematically generated pairwise molar load.
+7075,4,pair_sum_Cu_Si,delta_strength_mpa,DeltaSigma,-0.3934369447259828,1.0,0.3934369447259828,True,n(Cu)+n(Si),systematic pair sum,n_Cu+n_Si,Systematically generated pairwise molar load.
+7075,5,pair_product_Si_Fe,delta_strength_mpa,DeltaSigma,-0.3879932720126553,1.0,0.3879932720126553,True,n(Si)x n(Fe),systematic pair product,n_Si*n_Fe,Systematically generated pairwise co-presence term.
+7075,6,pair_balance_Si_Fe,delta_strength_mpa,DeltaSigma,-0.35788731667304385,1.0,0.35788731667304385,True,"balance(Si,Fe)",systematic pair balance,"min(n_Si,n_Fe)/(n_Si+n_Fe)",Dimensionless pair-balance coordinate.
+7075,7,pair_sum_Si_Mn,delta_strength_mpa,DeltaSigma,-0.34303625668752,1.0,0.34303625668752,True,n(Si)+n(Mn),systematic pair sum,n_Si+n_Mn,Systematically generated pairwise molar load.
+7075,8,pair_sum_Mg_Si,delta_strength_mpa,DeltaSigma,-0.3083466959587572,1.0,0.3083466959587572,True,n(Mg)+n(Si),systematic pair sum,n_Mg+n_Si,Systematically generated pairwise molar load.
+7075,9,wt_Al,delta_strength_mpa,DeltaSigma,0.255239221892596,0.994,0.25370778656124043,True,Al (wt.%),raw composition,Al_wt_pct,Measured elemental mass fraction retained in the full model.
+7075,10,pair_product_Mg_Cr,yield_strength_mpa,YS,0.2505172835521409,0.99,0.24801211071661952,True,n(Mg)x n(Cr),systematic pair product,n_Mg*n_Cr,Systematically generated pairwise co-presence term.

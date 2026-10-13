@@ -1,0 +1,4 @@
+﻿diagnostic,accuracy,balanced_accuracy,interpretation
+composition_logistic,1.0,1.0,Grade identity recoverability; not a property-prediction score.
+composition_random_forest,1.0,1.0,Grade identity recoverability; not a property-prediction score.
+process_route_logistic,1.0,1.0,Grade identity recoverability; not a property-prediction score.

@@ -1,18 +1,10 @@
-# Private inputs and generated outputs
 private_data/
-data/
 outputs/
 results/
 figures/
 models/
-
-# Data, model, figure and manuscript artefacts
-*.csv
-*.tsv
-*.xlsx
-*.xls
-*.parquet
-*.feather
+historical/data/
+historical/figure/
 *.joblib
 *.pkl
 *.pickle
@@ -27,8 +19,8 @@ models/
 *.docx
 *.ppt
 *.pptx
-
-# Runtime and local environment
+*.xlsx
+*.xls
 __pycache__/
 *.py[cod]
 .pytest_cache/

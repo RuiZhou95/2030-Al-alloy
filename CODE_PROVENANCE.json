@@ -1,0 +1,197 @@
+[
+  {
+    "published_path": "historical/00_data_overview.py",
+    "actual_source_filename": "00_data_overview.py",
+    "actual_source_sha256": "c436dc18fb1c0ce51e50f83886e968765dbbf23283f27132e00181c7db7319c7",
+    "published_sha256": "a496e8ecdc572cda83a1d33b06e8d602878c0a806d081f25a2d65bae2005d3e4",
+    "changes": [
+      "Original machine-specific workbook path replaced by ALLOY_SOURCE_WORKBOOK; selection logic unchanged."
+    ]
+  },
+  {
+    "published_path": "historical/01_feature_screen.py",
+    "actual_source_filename": "01_feature_screen.py",
+    "actual_source_sha256": "fe512679b0ee4e32840c2ab4b33d2055568e38c3c65213dd7d81cc6d73d660ac",
+    "published_sha256": "fe512679b0ee4e32840c2ab4b33d2055568e38c3c65213dd7d81cc6d73d660ac",
+    "changes": []
+  },
+  {
+    "published_path": "historical/02_train_models.py",
+    "actual_source_filename": "02_train_models.py",
+    "actual_source_sha256": "eed6999595e00c40a2c895484a3a9906ee054a6bbc8700005660863b5df3fac6",
+    "published_sha256": "eed6999595e00c40a2c895484a3a9906ee054a6bbc8700005660863b5df3fac6",
+    "changes": []
+  },
+  {
+    "published_path": "historical/05_multiobjective.py",
+    "actual_source_filename": "05_multiobjective.py",
+    "actual_source_sha256": "d6d97569d1773606803df4e1a90997d58defe59923c491471f33d382f5187372",
+    "published_sha256": "d6d97569d1773606803df4e1a90997d58defe59923c491471f33d382f5187372",
+    "changes": []
+  },
+  {
+    "published_path": "historical/07_verification.py",
+    "actual_source_filename": "07_verification.py",
+    "actual_source_sha256": "fd5bb41cad3b36e49ea271066d0bcd7557c2ec104bc0f4f0ff992d2d9ab62d30",
+    "published_sha256": "fd5bb41cad3b36e49ea271066d0bcd7557c2ec104bc0f4f0ff992d2d9ab62d30",
+    "changes": []
+  },
+  {
+    "published_path": "scripts/00_data_quality_audit.py",
+    "actual_source_filename": "00_data_quality_audit.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "1056134a520100227fc679244bbe54ffeff573a58b798c19626c734655b86431",
+    "published_sha256": "aa4c25fdc86cfb898dd8add8c8422d411fc3ac5304a6eed7082b943d5a1846f5",
+    "changed_top_level_functions_or_classes": [
+      "main"
+    ]
+  },
+  {
+    "published_path": "scripts/02_nested_validation.py",
+    "actual_source_filename": "02_nested_validation.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "d3b16ea7b51a4e4bfdf596f33593d2ed7787818928effbe8ddcf4e530e50d71c",
+    "published_sha256": "b154092872d3a8932fc2a74d1ca9920250bfc901a47ddcc3aed8cc3bea3b12af",
+    "changed_top_level_functions_or_classes": []
+  },
+  {
+    "published_path": "scripts/03_summarize_validation.py",
+    "actual_source_filename": "03_summarize_validation.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "7407de0c0999c2f9cb8c928dd2532323b35725e24266fd9ac75c5621a9dfece2",
+    "published_sha256": "62ebdeb5eb7c3dd63a9d1e1276cb901856d467830d70af4c444cf6c20f0c9e45",
+    "changed_top_level_functions_or_classes": [
+      "main"
+    ]
+  },
+  {
+    "published_path": "scripts/04_fit_models.py",
+    "actual_source_filename": "04_fit_freeze_models.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "8ee7c92e264c38d03679e163f7eb8b5bf12f6012052e87d29991f81939b5fa00",
+    "published_sha256": "4c4994ce444f48d1cf7030662e2b02f97a06b827b88ad0ea16c81fc2ecb86c96",
+    "changed_top_level_functions_or_classes": [
+      "load_core"
+    ]
+  },
+  {
+    "published_path": "scripts/05_external_evaluation.py",
+    "actual_source_filename": "05_external_evaluation.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "6191c48d493dbf464dbeef801d28b3a117f21f45c4b08cf44f7309ca47470ba0",
+    "published_sha256": "acdfc15c9bfc46bbc02353272b019dc90019954a536843985c1332d3cb6ea2f0",
+    "changed_top_level_functions_or_classes": [
+      "main"
+    ]
+  },
+  {
+    "published_path": "scripts/05b_support_distance.py",
+    "actual_source_filename": "05b_support_distance_correction.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "a2c2a522585f9efaed32a347f61d464a499d40bb7600b710d99bb8e4d4023ebe",
+    "published_sha256": "f3beb53a95801f4f06ad17b5a818fc4cc91c5d15354bb61e8a9959cf5b2200f6",
+    "changed_top_level_functions_or_classes": [
+      "main"
+    ]
+  },
+  {
+    "published_path": "scripts/06_interpretability.py",
+    "actual_source_filename": "06_interpretability.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "45c3def3f719328b5f7690d5ed884d869e5eebc626284c4e7a0cebaaec6ba671",
+    "published_sha256": "77aa355fe3726c3b41c6c4c63bb4ccd99689913f62a5bed94d5bd7acfc579424",
+    "changed_top_level_functions_or_classes": [
+      "core_module"
+    ]
+  },
+  {
+    "published_path": "scripts/07_symbolic_regression_audit.py",
+    "actual_source_filename": "07_symbolic_regression_audit.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "d30ceb1b3c2cb30e75c0cf1f6bd0274fbef0ea197a975065ed8c6afafbfe384d",
+    "published_sha256": "ab100b0fc8dc1ccfb8bb96a483048cab4ac0aaa3cc062d1d35b8af7df25a1efb",
+    "changed_top_level_functions_or_classes": []
+  },
+  {
+    "published_path": "scripts/08_candidate_generation.py",
+    "actual_source_filename": "08_robust_pareto.py",
+    "source_stage": "revision_scientific_v1/analysis",
+    "actual_source_sha256": "95e7d7a177482cf4fa3354a49bda8bd58ee7cbf569f28853d9b4fc2f69edd18b",
+    "published_sha256": "d2fe25e015a66a408870dc7697d34fa03c42824e567fc36eb428680f0ec06bd4",
+    "changed_top_level_functions_or_classes": [
+      "core_module"
+    ]
+  },
+  {
+    "published_path": "scripts/09_descriptor_screening.py",
+    "actual_source_filename": "19_descriptor_library_stability.py",
+    "source_stage": "revision_al_materials_mechanism_v2/analysis",
+    "actual_source_sha256": "bdb7f614978743aebfd2c91b54fc61d08924f62de6ee2760314b9e4b82ebfb59",
+    "published_sha256": "c1fc049e5d115092ef1df72a9aa1e43fb2c9aaf50c6796bd8186facd0a76468a",
+    "changed_top_level_functions_or_classes": []
+  },
+  {
+    "published_path": "scripts/10_descriptor_roles.py",
+    "actual_source_filename": "19b_descriptor_role_assignment.py",
+    "source_stage": "revision_al_materials_mechanism_v2/analysis",
+    "actual_source_sha256": "93995e793b19af271f46d93b1992aeb4f3eb4f881641218f6a696465766bf3b5",
+    "published_sha256": "85183083a66eefe04b00d1b92bba7608535679fe5b72fda9a0096b127c007f47",
+    "changed_top_level_functions_or_classes": []
+  },
+  {
+    "published_path": "scripts/11_make_main_figures.py",
+    "actual_source_filename": "11_make_main_figures.py",
+    "source_stage": "revision_review_20261008_v4/scripts",
+    "actual_source_sha256": "01cbb854be822e69ece40b6a50004bc220bc040242fcba8368af58bcf13c01cf",
+    "published_sha256": "e085b959781447e4299c58562900e06978f87c9d3faa0910b01e83d275be60cb",
+    "changed_top_level_functions_or_classes": [
+      "main"
+    ]
+  },
+  {
+    "published_path": "scripts/15_materials_source_analysis.py",
+    "actual_source_filename": "14_materials_mainline.py",
+    "source_stage": "revision_materials_mainline_v1/analysis",
+    "actual_source_sha256": "c87c3febadc5c8b474b665f5f452f9db9499eca90cee2de75dd8dfc8816c5809",
+    "published_sha256": "de67e5c3a6bd43ce7c58febf4a5d0d2731c29825423ea1807ef18cfc27dd4acd",
+    "changed_top_level_functions_or_classes": [
+      "read_inputs"
+    ]
+  },
+  {
+    "published_path": "scripts/12_make_supplementary_figures.py",
+    "actual_source_filename": "16_nature_figures_v2.py",
+    "source_stage": "revision_materials_mainline_v3/analysis",
+    "actual_source_sha256": "f908887c9f4647c3158bef67b118221de4f2a9f4938e0e4e99134b6b50ecf9fb",
+    "published_sha256": "b379bf3a93f646bf3acc26915a99fe21261dfe618d95fd865a043938a0216dae",
+    "identical_function_count": 15,
+    "total_published_function_count": 21,
+    "changed_top_level_functions_or_classes": [
+      "read_data",
+      "main_fig2",
+      "main_fig5",
+      "supp_fig1",
+      "main"
+    ]
+  },
+  {
+    "published_path": "scripts/13_make_trial_distance_figure.py",
+    "actual_source_filename": "24_supporting_figS6_comments_v2.py",
+    "source_stage": "revision_al_materials_mechanism_v2/analysis",
+    "actual_source_sha256": "51dffbf54799de0c343a95f4e8870f83b950191486d31420a91d753b2abe816f",
+    "published_sha256": "4ca32c7030b81d05947a86e7c7ee0f374482ea74c051a65dc8dfb587a7bba208",
+    "identical_function_count": 3,
+    "total_published_function_count": 3,
+    "changed_top_level_functions_or_classes": []
+  },
+  {
+    "published_path": "scripts/14_make_current_supplement.py",
+    "actual_source_filename": "14_make_current_supplement.py",
+    "source_stage": "revision_review_20261008_v1/scripts",
+    "actual_source_sha256": "a91f0bf2b6ac0ebeb7a18aff945806cb77e84df61977b7cb53fd33f1f749f116",
+    "published_sha256": "a91f0bf2b6ac0ebeb7a18aff945806cb77e84df61977b7cb53fd33f1f749f116",
+    "identical_function_count": 9,
+    "total_published_function_count": 9,
+    "changed_top_level_functions_or_classes": []
+  }
+]

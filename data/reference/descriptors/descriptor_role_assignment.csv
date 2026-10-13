@@ -1,0 +1,11 @@
+﻿descriptor,label,family,grade_eta2,n_within_grade_pass,max_within_grade_score,branch_coordinate,main_text_role
+impurity_FeSi_wt,Fe+Si,aggregate load,0.9963497341492757,2,0.3160954344434142,True,branch coordinate plus within-grade association
+phasecap_S_Al2CuMg,S capacity,phase-stoichiometric capacity,0.9996409606605184,2,0.2873848143497495,True,branch coordinate plus within-grade association
+phasecap_beta_Mg2Si,Mg2Si capacity,phase-stoichiometric capacity,0.996467296775456,1,0.4630590727594925,True,branch coordinate plus within-grade association
+phaseimbalance_beta,Mg2Si imbalance,phase-stoichiometric excess,0.9987240372627199,1,0.3897467772581353,True,branch coordinate plus within-grade association
+phasecap_eta_MgZn2,MgZn2 capacity,phase-stoichiometric capacity,0.9999073686809755,1,0.258773135830078,True,branch coordinate plus within-grade association
+total_solute_wt,Total solute,aggregate load,0.9992407449610264,1,0.2510405098901166,True,branch coordinate plus within-grade association
+eta_total_ZnMgCu_wt,Zn+Mg+Cu,aggregate load,0.999725331673696,0,0.2359926430374401,True,branch coordinate
+dispersoid_MnCrZr_wt,Mn+Cr+Zr,aggregate load,0.9870770417322349,0,0.2073142792290493,True,branch coordinate
+wt_Mg,Mg (wt.%),raw composition,0.9992936900316071,0,0.1591839047297251,True,branch coordinate
+phaseimbalance_eta,MgZn2 imbalance,phase-stoichiometric excess,0.9991958764936422,0,0.1523238498376162,True,branch coordinate

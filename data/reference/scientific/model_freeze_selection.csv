@@ -1,0 +1,4 @@
+﻿scheme,feature_set,model,target,r2,mae,rmse,n_predictions,n_unique_samples,model_order,feature_order,best_observed_rmse,within_2pct_of_best,selection_rule
+condition,process,xgb,delta_strength_mpa,0.9230984971242856,6.2672297518018265,11.16838633170856,284,284,3,1,11.16838633170856,True,condition pooled RMSE; 2% tie then model simplicity and feature simplicity
+condition,joint,gpr,elongation_pct,0.8038122112277158,1.13414180766186,1.6732193121655412,284,284,2,2,1.650242286883008,True,condition pooled RMSE; 2% tie then model simplicity and feature simplicity
+condition,process,xgb,yield_strength_mpa,0.9370698196709109,15.28509583271725,26.054979394225136,284,284,3,1,26.054979394225136,True,condition pooled RMSE; 2% tie then model simplicity and feature simplicity

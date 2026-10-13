@@ -1,0 +1,119 @@
+﻿descriptor,grade_eta2,family,label
+wt_Zn,0.999907368680976,raw composition,Zn (wt.%)
+phasecap_eta_MgZn2,0.9999073686809755,phase-stoichiometric capacity,MgZn2 capacity
+mol_Zn,0.9999073686809755,molar composition,n(Zn)
+pair_sum_Zn_Zr,0.9999066731296972,systematic pair sum,n(Zn)+n(Zr)
+pair_sum_Zn_Cr,0.9998765141467457,systematic pair sum,n(Zn)+n(Cr)
+pair_sum_Zn_Fe,0.9998226696793107,systematic pair sum,n(Zn)+n(Fe)
+pair_sum_Cu_Zn,0.9997953651802779,systematic pair sum,n(Cu)+n(Zn)
+pair_sum_Zn_Mn,0.9997650635052022,systematic pair sum,n(Zn)+n(Mn)
+mol_Cu,0.9997594284245038,molar composition,n(Cu)
+wt_Cu,0.9997594284245033,raw composition,Cu (wt.%)
+pair_sum_Cu_Zr,0.999752578841807,systematic pair sum,n(Cu)+n(Zr)
+eta_total_ZnMgCu_wt,0.999725331673696,aggregate load,Zn+Mg+Cu
+pair_sum_Mg_Zn,0.9996637668038255,systematic pair sum,n(Mg)+n(Zn)
+pair_sum_Cu_Cr,0.999659062732099,systematic pair sum,n(Cu)+n(Cr)
+phasecap_S_Al2CuMg,0.9996409606605184,phase-stoichiometric capacity,S capacity
+pair_sum_Si_Zn,0.9996266463950451,systematic pair sum,n(Si)+n(Zn)
+pair_sum_Cu_Fe,0.9995500700909585,systematic pair sum,n(Cu)+n(Fe)
+phaseimbalance_S,0.9995056371951094,phase-stoichiometric excess,S imbalance
+pair_sum_Cu_Mn,0.9995043781826468,systematic pair sum,n(Cu)+n(Mn)
+pair_balance_Mg_Zn,0.9994734166657456,systematic pair balance,"balance(Mg,Zn)"
+pair_product_Mg_Zn,0.9994152080399192,systematic pair product,n(Mg)x n(Zn)
+pair_balance_Mg_Si,0.9993933911938979,systematic pair balance,"balance(Mg,Si)"
+pair_sum_Mg_Cr,0.9993054281020531,systematic pair sum,n(Mg)+n(Cr)
+pair_sum_Mg_Zr,0.9992943812429367,systematic pair sum,n(Mg)+n(Zr)
+wt_Mg,0.9992936900316071,raw composition,Mg (wt.%)
+mol_Mg,0.9992936900316062,molar composition,n(Mg)
+pair_balance_Cu_Mg,0.999293611134948,systematic pair balance,"balance(Cu,Mg)"
+pair_sum_Cu_Mg,0.9992478193220369,systematic pair sum,n(Cu)+n(Mg)
+total_solute_wt,0.9992407449610264,aggregate load,Total solute
+wt_Al,0.9992391961248367,raw composition,Al (wt.%)
+mol_Al,0.9992391961248361,molar composition,n(Al)
+pair_sum_Mg_Fe,0.9991959349951898,systematic pair sum,n(Mg)+n(Fe)
+phaseimbalance_eta,0.9991958764936422,phase-stoichiometric excess,MgZn2 imbalance
+pair_sum_Mg_Mn,0.9991680140290964,systematic pair sum,n(Mg)+n(Mn)
+pair_sum_Cu_Si,0.9991119302831821,systematic pair sum,n(Cu)+n(Si)
+pair_product_Cu_Mg,0.9990995998244692,systematic pair product,n(Cu)x n(Mg)
+pair_product_Zn_Cr,0.999060009857949,systematic pair product,n(Zn)x n(Cr)
+pair_sum_Si_Zr,0.9989449251126564,systematic pair sum,n(Si)+n(Zr)
+wt_Si,0.9989336238409889,raw composition,Si (wt.%)
+mol_Si,0.9989336238409887,molar composition,n(Si)
+phaseimbalance_beta,0.9987240372627199,phase-stoichiometric excess,Mg2Si imbalance
+pair_sum_Si_Mn,0.9986591074628283,systematic pair sum,n(Si)+n(Mn)
+pair_sum_Si_Cr,0.998651233095531,systematic pair sum,n(Si)+n(Cr)
+pair_product_Cu_Zn,0.9985019529098139,systematic pair product,n(Cu)x n(Zn)
+pair_sum_Mg_Si,0.9983953058379528,systematic pair sum,n(Mg)+n(Si)
+pair_product_Cu_Mn,0.9982771711167541,systematic pair product,n(Cu)x n(Mn)
+pair_sum_Si_Fe,0.9979172822043666,systematic pair sum,n(Si)+n(Fe)
+pair_product_Si_Mn,0.9972010627733517,systematic pair product,n(Si)x n(Mn)
+pair_balance_Mg_Mn,0.996972542046958,systematic pair balance,"balance(Mg,Mn)"
+pair_product_Mg_Mn,0.9965617413040833,systematic pair product,n(Mg)x n(Mn)
+phasecap_beta_Mg2Si,0.996467296775456,phase-stoichiometric capacity,Mg2Si capacity
+impurity_FeSi_wt,0.9963497341492757,aggregate load,Fe+Si
+pair_product_Si_Fe,0.9956892650291306,systematic pair product,n(Si)x n(Fe)
+pair_product_Mg_Cr,0.9953357878923668,systematic pair product,n(Mg)x n(Cr)
+mol_Mn,0.994619699342318,molar composition,n(Mn)
+wt_Mn,0.9946196993423179,raw composition,Mn (wt.%)
+pair_sum_Mn_Zr,0.9945750274259209,systematic pair sum,n(Mn)+n(Zr)
+pair_product_Cu_Cr,0.9934970516057713,systematic pair product,n(Cu)x n(Cr)
+pair_product_Mg_Si,0.9925754553545948,systematic pair product,n(Mg)x n(Si)
+pair_sum_Mn_Fe,0.9894344832897759,systematic pair sum,n(Mn)+n(Fe)
+dispersoid_MnCrZr_wt,0.9870770417322349,aggregate load,Mn+Cr+Zr
+pair_sum_Mn_Cr,0.9866503082507662,systematic pair sum,n(Mn)+n(Cr)
+pair_balance_Mg_Fe,0.985594263008117,systematic pair balance,"balance(Mg,Fe)"
+pair_product_Si_Cr,0.982819800383927,systematic pair product,n(Si)x n(Cr)
+wt_Cr,0.9808720790458759,raw composition,Cr (wt.%)
+mol_Cr,0.9808720790458758,molar composition,n(Cr)
+pair_sum_Cr_Zr,0.9802589613913985,systematic pair sum,n(Cr)+n(Zr)
+pair_balance_Mg_Cr,0.9792311465352617,systematic pair balance,"balance(Mg,Cr)"
+pair_product_Mn_Fe,0.9777124129477228,systematic pair product,n(Mn)x n(Fe)
+pair_product_Mn_Cr,0.9761053591409719,systematic pair product,n(Mn)x n(Cr)
+pair_product_Zn_Fe,0.9737844500451817,systematic pair product,n(Zn)x n(Fe)
+pair_balance_Si_Fe,0.9724945970436051,systematic pair balance,"balance(Si,Fe)"
+pair_balance_Cr_Fe,0.9636508805612511,systematic pair balance,"balance(Cr,Fe)"
+wt_Ni,0.9618760811470557,raw composition,Ni (wt.%)
+mol_Ni,0.9618760811470423,molar composition,n(Ni)
+pair_sum_Cr_Fe,0.9610376413920605,systematic pair sum,n(Cr)+n(Fe)
+pair_balance_Si_Cr,0.9605413856839253,systematic pair balance,"balance(Si,Cr)"
+pair_product_Cr_Fe,0.9546267007168742,systematic pair product,n(Cr)x n(Fe)
+pair_product_Cu_Fe,0.9490032756324468,systematic pair product,n(Cu)x n(Fe)
+pair_product_Si_Zn,0.9219286584869752,systematic pair product,n(Si)x n(Zn)
+pair_balance_Cu_Zr,0.9113855762817945,systematic pair balance,"balance(Cu,Zr)"
+pair_product_Mg_Fe,0.8986139159255366,systematic pair product,n(Mg)x n(Fe)
+pair_balance_Cu_Si,0.8825157302474993,systematic pair balance,"balance(Cu,Si)"
+pair_balance_Si_Zn,0.8809523893320568,systematic pair balance,"balance(Si,Zn)"
+pair_sum_Zr_Fe,0.8808935897243915,systematic pair sum,n(Zr)+n(Fe)
+wt_Fe,0.8792098773088214,raw composition,Fe (wt.%)
+mol_Fe,0.8792098773088209,molar composition,n(Fe)
+pair_product_Cu_Si,0.874742545921668,systematic pair product,n(Cu)x n(Si)
+pair_balance_Cu_Mn,0.8705195113690827,systematic pair balance,"balance(Cu,Mn)"
+pair_balance_Mn_Cr,0.8685272219102591,systematic pair balance,"balance(Mn,Cr)"
+pair_balance_Cu_Cr,0.8661726295354797,systematic pair balance,"balance(Cu,Cr)"
+wt_V,0.8307413028064023,raw composition,V (wt.%)
+mol_V,0.8307413028063971,molar composition,n(V)
+pair_product_Zn_Mn,0.8231883650675413,systematic pair product,n(Zn)x n(Mn)
+pair_balance_Cu_Fe,0.7838462703113183,systematic pair balance,"balance(Cu,Fe)"
+pair_balance_Cr_Zr,0.7745578037803416,systematic pair balance,"balance(Cr,Zr)"
+mol_Ti,0.7736966469627699,molar composition,n(Ti)
+wt_Ti,0.7736966469627692,raw composition,Ti (wt.%)
+pair_balance_Zn_Fe,0.7724654984524646,systematic pair balance,"balance(Zn,Fe)"
+pair_balance_Cu_Zn,0.7045999115882979,systematic pair balance,"balance(Cu,Zn)"
+pair_balance_Zn_Mn,0.6552726694509693,systematic pair balance,"balance(Zn,Mn)"
+pair_product_Si_Zr,0.6519311310996724,systematic pair product,n(Si)x n(Zr)
+pair_product_Cr_Zr,0.6362731870779598,systematic pair product,n(Cr)x n(Zr)
+pair_balance_Si_Mn,0.590808481622525,systematic pair balance,"balance(Si,Mn)"
+pair_balance_Zn_Zr,0.49041125505156397,systematic pair balance,"balance(Zn,Zr)"
+pair_product_Zr_Fe,0.4511830547479116,systematic pair product,n(Zr)x n(Fe)
+pair_balance_Mn_Fe,0.42432130658804723,systematic pair balance,"balance(Mn,Fe)"
+pair_balance_Mg_Zr,0.38008236399915424,systematic pair balance,"balance(Mg,Zr)"
+pair_product_Cu_Zr,0.31841934848488046,systematic pair product,n(Cu)x n(Zr)
+pair_product_Mn_Zr,0.31018686510248816,systematic pair product,n(Mn)x n(Zr)
+wt_Zr,0.2886294930010075,raw composition,Zr (wt.%)
+mol_Zr,0.28862949300094426,molar composition,n(Zr)
+pair_product_Mg_Zr,0.28174383311953394,systematic pair product,n(Mg)x n(Zr)
+pair_balance_Mn_Zr,0.281120906582336,systematic pair balance,"balance(Mn,Zr)"
+pair_balance_Si_Zr,0.24473456534226729,systematic pair balance,"balance(Si,Zr)"
+pair_product_Zn_Zr,0.24167035066082554,systematic pair product,n(Zn)x n(Zr)
+pair_balance_Zr_Fe,0.23986797880187935,systematic pair balance,"balance(Zr,Fe)"
+pair_balance_Zn_Cr,0.0892067824487948,systematic pair balance,"balance(Zn,Cr)"

@@ -1,0 +1,119 @@
+﻿name,label,family,formula,physical_role
+wt_Al,Al (wt.%),raw composition,Al_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Al,n(Al),molar composition,10*Al_wt_pct/M_Al,Elemental amount per kilogram of alloy.
+wt_Ti,Ti (wt.%),raw composition,Ti_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Ti,n(Ti),molar composition,10*Ti_wt_pct/M_Ti,Elemental amount per kilogram of alloy.
+wt_Fe,Fe (wt.%),raw composition,Fe_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Fe,n(Fe),molar composition,10*Fe_wt_pct/M_Fe,Elemental amount per kilogram of alloy.
+wt_Ni,Ni (wt.%),raw composition,Ni_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Ni,n(Ni),molar composition,10*Ni_wt_pct/M_Ni,Elemental amount per kilogram of alloy.
+wt_Cr,Cr (wt.%),raw composition,Cr_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Cr,n(Cr),molar composition,10*Cr_wt_pct/M_Cr,Elemental amount per kilogram of alloy.
+wt_Mn,Mn (wt.%),raw composition,Mn_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Mn,n(Mn),molar composition,10*Mn_wt_pct/M_Mn,Elemental amount per kilogram of alloy.
+wt_Si,Si (wt.%),raw composition,Si_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Si,n(Si),molar composition,10*Si_wt_pct/M_Si,Elemental amount per kilogram of alloy.
+wt_Cu,Cu (wt.%),raw composition,Cu_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Cu,n(Cu),molar composition,10*Cu_wt_pct/M_Cu,Elemental amount per kilogram of alloy.
+wt_Zn,Zn (wt.%),raw composition,Zn_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Zn,n(Zn),molar composition,10*Zn_wt_pct/M_Zn,Elemental amount per kilogram of alloy.
+wt_Mg,Mg (wt.%),raw composition,Mg_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Mg,n(Mg),molar composition,10*Mg_wt_pct/M_Mg,Elemental amount per kilogram of alloy.
+wt_V,V (wt.%),raw composition,V_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_V,n(V),molar composition,10*V_wt_pct/M_V,Elemental amount per kilogram of alloy.
+wt_Zr,Zr (wt.%),raw composition,Zr_wt_pct,Measured elemental mass fraction retained in the full model.
+mol_Zr,n(Zr),molar composition,10*Zr_wt_pct/M_Zr,Elemental amount per kilogram of alloy.
+total_solute_wt,Total solute,aggregate load,sum(non-Al wt.%),Total measured non-aluminium solute load.
+dispersoid_MnCrZr_wt,Mn+Cr+Zr,aggregate load,Mn+Cr+Zr (wt.%),Elements associated with dispersoid-forming additions.
+impurity_FeSi_wt,Fe+Si,aggregate load,Fe+Si (wt.%),Combined Fe-Si load relevant to constituent particles.
+eta_total_ZnMgCu_wt,Zn+Mg+Cu,aggregate load,Zn+Mg+Cu (wt.%),Total major solute load of the 7xxx branch.
+pair_sum_Cu_Mg,n(Cu)+n(Mg),systematic pair sum,n_Cu+n_Mg,Systematically generated pairwise molar load.
+pair_product_Cu_Mg,n(Cu)x n(Mg),systematic pair product,n_Cu*n_Mg,Systematically generated pairwise co-presence term.
+pair_balance_Cu_Mg,"balance(Cu,Mg)",systematic pair balance,"min(n_Cu,n_Mg)/(n_Cu+n_Mg)",Dimensionless pair-balance coordinate.
+pair_sum_Cu_Si,n(Cu)+n(Si),systematic pair sum,n_Cu+n_Si,Systematically generated pairwise molar load.
+pair_product_Cu_Si,n(Cu)x n(Si),systematic pair product,n_Cu*n_Si,Systematically generated pairwise co-presence term.
+pair_balance_Cu_Si,"balance(Cu,Si)",systematic pair balance,"min(n_Cu,n_Si)/(n_Cu+n_Si)",Dimensionless pair-balance coordinate.
+pair_sum_Cu_Zn,n(Cu)+n(Zn),systematic pair sum,n_Cu+n_Zn,Systematically generated pairwise molar load.
+pair_product_Cu_Zn,n(Cu)x n(Zn),systematic pair product,n_Cu*n_Zn,Systematically generated pairwise co-presence term.
+pair_balance_Cu_Zn,"balance(Cu,Zn)",systematic pair balance,"min(n_Cu,n_Zn)/(n_Cu+n_Zn)",Dimensionless pair-balance coordinate.
+pair_sum_Cu_Mn,n(Cu)+n(Mn),systematic pair sum,n_Cu+n_Mn,Systematically generated pairwise molar load.
+pair_product_Cu_Mn,n(Cu)x n(Mn),systematic pair product,n_Cu*n_Mn,Systematically generated pairwise co-presence term.
+pair_balance_Cu_Mn,"balance(Cu,Mn)",systematic pair balance,"min(n_Cu,n_Mn)/(n_Cu+n_Mn)",Dimensionless pair-balance coordinate.
+pair_sum_Cu_Cr,n(Cu)+n(Cr),systematic pair sum,n_Cu+n_Cr,Systematically generated pairwise molar load.
+pair_product_Cu_Cr,n(Cu)x n(Cr),systematic pair product,n_Cu*n_Cr,Systematically generated pairwise co-presence term.
+pair_balance_Cu_Cr,"balance(Cu,Cr)",systematic pair balance,"min(n_Cu,n_Cr)/(n_Cu+n_Cr)",Dimensionless pair-balance coordinate.
+pair_sum_Cu_Zr,n(Cu)+n(Zr),systematic pair sum,n_Cu+n_Zr,Systematically generated pairwise molar load.
+pair_product_Cu_Zr,n(Cu)x n(Zr),systematic pair product,n_Cu*n_Zr,Systematically generated pairwise co-presence term.
+pair_balance_Cu_Zr,"balance(Cu,Zr)",systematic pair balance,"min(n_Cu,n_Zr)/(n_Cu+n_Zr)",Dimensionless pair-balance coordinate.
+pair_sum_Cu_Fe,n(Cu)+n(Fe),systematic pair sum,n_Cu+n_Fe,Systematically generated pairwise molar load.
+pair_product_Cu_Fe,n(Cu)x n(Fe),systematic pair product,n_Cu*n_Fe,Systematically generated pairwise co-presence term.
+pair_balance_Cu_Fe,"balance(Cu,Fe)",systematic pair balance,"min(n_Cu,n_Fe)/(n_Cu+n_Fe)",Dimensionless pair-balance coordinate.
+pair_sum_Mg_Si,n(Mg)+n(Si),systematic pair sum,n_Mg+n_Si,Systematically generated pairwise molar load.
+pair_product_Mg_Si,n(Mg)x n(Si),systematic pair product,n_Mg*n_Si,Systematically generated pairwise co-presence term.
+pair_balance_Mg_Si,"balance(Mg,Si)",systematic pair balance,"min(n_Mg,n_Si)/(n_Mg+n_Si)",Dimensionless pair-balance coordinate.
+pair_sum_Mg_Zn,n(Mg)+n(Zn),systematic pair sum,n_Mg+n_Zn,Systematically generated pairwise molar load.
+pair_product_Mg_Zn,n(Mg)x n(Zn),systematic pair product,n_Mg*n_Zn,Systematically generated pairwise co-presence term.
+pair_balance_Mg_Zn,"balance(Mg,Zn)",systematic pair balance,"min(n_Mg,n_Zn)/(n_Mg+n_Zn)",Dimensionless pair-balance coordinate.
+pair_sum_Mg_Mn,n(Mg)+n(Mn),systematic pair sum,n_Mg+n_Mn,Systematically generated pairwise molar load.
+pair_product_Mg_Mn,n(Mg)x n(Mn),systematic pair product,n_Mg*n_Mn,Systematically generated pairwise co-presence term.
+pair_balance_Mg_Mn,"balance(Mg,Mn)",systematic pair balance,"min(n_Mg,n_Mn)/(n_Mg+n_Mn)",Dimensionless pair-balance coordinate.
+pair_sum_Mg_Cr,n(Mg)+n(Cr),systematic pair sum,n_Mg+n_Cr,Systematically generated pairwise molar load.
+pair_product_Mg_Cr,n(Mg)x n(Cr),systematic pair product,n_Mg*n_Cr,Systematically generated pairwise co-presence term.
+pair_balance_Mg_Cr,"balance(Mg,Cr)",systematic pair balance,"min(n_Mg,n_Cr)/(n_Mg+n_Cr)",Dimensionless pair-balance coordinate.
+pair_sum_Mg_Zr,n(Mg)+n(Zr),systematic pair sum,n_Mg+n_Zr,Systematically generated pairwise molar load.
+pair_product_Mg_Zr,n(Mg)x n(Zr),systematic pair product,n_Mg*n_Zr,Systematically generated pairwise co-presence term.
+pair_balance_Mg_Zr,"balance(Mg,Zr)",systematic pair balance,"min(n_Mg,n_Zr)/(n_Mg+n_Zr)",Dimensionless pair-balance coordinate.
+pair_sum_Mg_Fe,n(Mg)+n(Fe),systematic pair sum,n_Mg+n_Fe,Systematically generated pairwise molar load.
+pair_product_Mg_Fe,n(Mg)x n(Fe),systematic pair product,n_Mg*n_Fe,Systematically generated pairwise co-presence term.
+pair_balance_Mg_Fe,"balance(Mg,Fe)",systematic pair balance,"min(n_Mg,n_Fe)/(n_Mg+n_Fe)",Dimensionless pair-balance coordinate.
+pair_sum_Si_Zn,n(Si)+n(Zn),systematic pair sum,n_Si+n_Zn,Systematically generated pairwise molar load.
+pair_product_Si_Zn,n(Si)x n(Zn),systematic pair product,n_Si*n_Zn,Systematically generated pairwise co-presence term.
+pair_balance_Si_Zn,"balance(Si,Zn)",systematic pair balance,"min(n_Si,n_Zn)/(n_Si+n_Zn)",Dimensionless pair-balance coordinate.
+pair_sum_Si_Mn,n(Si)+n(Mn),systematic pair sum,n_Si+n_Mn,Systematically generated pairwise molar load.
+pair_product_Si_Mn,n(Si)x n(Mn),systematic pair product,n_Si*n_Mn,Systematically generated pairwise co-presence term.
+pair_balance_Si_Mn,"balance(Si,Mn)",systematic pair balance,"min(n_Si,n_Mn)/(n_Si+n_Mn)",Dimensionless pair-balance coordinate.
+pair_sum_Si_Cr,n(Si)+n(Cr),systematic pair sum,n_Si+n_Cr,Systematically generated pairwise molar load.
+pair_product_Si_Cr,n(Si)x n(Cr),systematic pair product,n_Si*n_Cr,Systematically generated pairwise co-presence term.
+pair_balance_Si_Cr,"balance(Si,Cr)",systematic pair balance,"min(n_Si,n_Cr)/(n_Si+n_Cr)",Dimensionless pair-balance coordinate.
+pair_sum_Si_Zr,n(Si)+n(Zr),systematic pair sum,n_Si+n_Zr,Systematically generated pairwise molar load.
+pair_product_Si_Zr,n(Si)x n(Zr),systematic pair product,n_Si*n_Zr,Systematically generated pairwise co-presence term.
+pair_balance_Si_Zr,"balance(Si,Zr)",systematic pair balance,"min(n_Si,n_Zr)/(n_Si+n_Zr)",Dimensionless pair-balance coordinate.
+pair_sum_Si_Fe,n(Si)+n(Fe),systematic pair sum,n_Si+n_Fe,Systematically generated pairwise molar load.
+pair_product_Si_Fe,n(Si)x n(Fe),systematic pair product,n_Si*n_Fe,Systematically generated pairwise co-presence term.
+pair_balance_Si_Fe,"balance(Si,Fe)",systematic pair balance,"min(n_Si,n_Fe)/(n_Si+n_Fe)",Dimensionless pair-balance coordinate.
+pair_sum_Zn_Mn,n(Zn)+n(Mn),systematic pair sum,n_Zn+n_Mn,Systematically generated pairwise molar load.
+pair_product_Zn_Mn,n(Zn)x n(Mn),systematic pair product,n_Zn*n_Mn,Systematically generated pairwise co-presence term.
+pair_balance_Zn_Mn,"balance(Zn,Mn)",systematic pair balance,"min(n_Zn,n_Mn)/(n_Zn+n_Mn)",Dimensionless pair-balance coordinate.
+pair_sum_Zn_Cr,n(Zn)+n(Cr),systematic pair sum,n_Zn+n_Cr,Systematically generated pairwise molar load.
+pair_product_Zn_Cr,n(Zn)x n(Cr),systematic pair product,n_Zn*n_Cr,Systematically generated pairwise co-presence term.
+pair_balance_Zn_Cr,"balance(Zn,Cr)",systematic pair balance,"min(n_Zn,n_Cr)/(n_Zn+n_Cr)",Dimensionless pair-balance coordinate.
+pair_sum_Zn_Zr,n(Zn)+n(Zr),systematic pair sum,n_Zn+n_Zr,Systematically generated pairwise molar load.
+pair_product_Zn_Zr,n(Zn)x n(Zr),systematic pair product,n_Zn*n_Zr,Systematically generated pairwise co-presence term.
+pair_balance_Zn_Zr,"balance(Zn,Zr)",systematic pair balance,"min(n_Zn,n_Zr)/(n_Zn+n_Zr)",Dimensionless pair-balance coordinate.
+pair_sum_Zn_Fe,n(Zn)+n(Fe),systematic pair sum,n_Zn+n_Fe,Systematically generated pairwise molar load.
+pair_product_Zn_Fe,n(Zn)x n(Fe),systematic pair product,n_Zn*n_Fe,Systematically generated pairwise co-presence term.
+pair_balance_Zn_Fe,"balance(Zn,Fe)",systematic pair balance,"min(n_Zn,n_Fe)/(n_Zn+n_Fe)",Dimensionless pair-balance coordinate.
+pair_sum_Mn_Cr,n(Mn)+n(Cr),systematic pair sum,n_Mn+n_Cr,Systematically generated pairwise molar load.
+pair_product_Mn_Cr,n(Mn)x n(Cr),systematic pair product,n_Mn*n_Cr,Systematically generated pairwise co-presence term.
+pair_balance_Mn_Cr,"balance(Mn,Cr)",systematic pair balance,"min(n_Mn,n_Cr)/(n_Mn+n_Cr)",Dimensionless pair-balance coordinate.
+pair_sum_Mn_Zr,n(Mn)+n(Zr),systematic pair sum,n_Mn+n_Zr,Systematically generated pairwise molar load.
+pair_product_Mn_Zr,n(Mn)x n(Zr),systematic pair product,n_Mn*n_Zr,Systematically generated pairwise co-presence term.
+pair_balance_Mn_Zr,"balance(Mn,Zr)",systematic pair balance,"min(n_Mn,n_Zr)/(n_Mn+n_Zr)",Dimensionless pair-balance coordinate.
+pair_sum_Mn_Fe,n(Mn)+n(Fe),systematic pair sum,n_Mn+n_Fe,Systematically generated pairwise molar load.
+pair_product_Mn_Fe,n(Mn)x n(Fe),systematic pair product,n_Mn*n_Fe,Systematically generated pairwise co-presence term.
+pair_balance_Mn_Fe,"balance(Mn,Fe)",systematic pair balance,"min(n_Mn,n_Fe)/(n_Mn+n_Fe)",Dimensionless pair-balance coordinate.
+pair_sum_Cr_Zr,n(Cr)+n(Zr),systematic pair sum,n_Cr+n_Zr,Systematically generated pairwise molar load.
+pair_product_Cr_Zr,n(Cr)x n(Zr),systematic pair product,n_Cr*n_Zr,Systematically generated pairwise co-presence term.
+pair_balance_Cr_Zr,"balance(Cr,Zr)",systematic pair balance,"min(n_Cr,n_Zr)/(n_Cr+n_Zr)",Dimensionless pair-balance coordinate.
+pair_sum_Cr_Fe,n(Cr)+n(Fe),systematic pair sum,n_Cr+n_Fe,Systematically generated pairwise molar load.
+pair_product_Cr_Fe,n(Cr)x n(Fe),systematic pair product,n_Cr*n_Fe,Systematically generated pairwise co-presence term.
+pair_balance_Cr_Fe,"balance(Cr,Fe)",systematic pair balance,"min(n_Cr,n_Fe)/(n_Cr+n_Fe)",Dimensionless pair-balance coordinate.
+pair_sum_Zr_Fe,n(Zr)+n(Fe),systematic pair sum,n_Zr+n_Fe,Systematically generated pairwise molar load.
+pair_product_Zr_Fe,n(Zr)x n(Fe),systematic pair product,n_Zr*n_Fe,Systematically generated pairwise co-presence term.
+pair_balance_Zr_Fe,"balance(Zr,Fe)",systematic pair balance,"min(n_Zr,n_Fe)/(n_Zr+n_Fe)",Dimensionless pair-balance coordinate.
+phasecap_S_Al2CuMg,S capacity,phase-stoichiometric capacity,"min(n_Cu,n_Mg)",Limiting-reagent coordinate for Al2CuMg-type stoichiometry.
+phaseimbalance_S,S imbalance,phase-stoichiometric excess,|n_Cu-n_Mg|,Departure from a 1:1 Cu:Mg molar balance.
+phasecap_beta_Mg2Si,Mg2Si capacity,phase-stoichiometric capacity,"min(n_Mg/2,n_Si)",Limiting-reagent coordinate for Mg2Si-type stoichiometry.
+phaseimbalance_beta,Mg2Si imbalance,phase-stoichiometric excess,|n_Mg/2-n_Si|,Departure from Mg2Si molar balance.
+phasecap_eta_MgZn2,MgZn2 capacity,phase-stoichiometric capacity,"min(n_Mg,n_Zn/2)",Limiting-reagent coordinate for MgZn2-type stoichiometry.
+phaseimbalance_eta,MgZn2 imbalance,phase-stoichiometric excess,|n_Mg-n_Zn/2|,Departure from MgZn2 molar balance.

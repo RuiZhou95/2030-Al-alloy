@@ -1,0 +1,20 @@
+original_label,english_description
+熔铸+均质+热轧+固溶+时效,melting and casting + homogenization + hot rolling + solution treatment + aging
+熔铸+均质+热轧+固溶+拉伸,melting and casting + homogenization + hot rolling + solution treatment + stretching
+熔铸+热轧+横剪,melting and casting + hot rolling + cross-cutting
+熔铸+热轧+冷轧+退火+横剪,melting and casting + hot rolling + cold rolling + annealing + cross-cutting
+熔铸+均热+热轧+横剪+固溶+拉伸+时效,melting and casting + soaking + hot rolling + cross-cutting + solution treatment + stretching + aging
+熔铸+均热+热轧+锯切+固溶+拉伸+时效,melting and casting + soaking + hot rolling + sawing + solution treatment + stretching + aging
+水冷,water cooling
+空冷,air cooling
+无,none as recorded
+均热+固溶+时效,soaking + solution treatment + aging
+均热+固溶,soaking + solution treatment
+无热处理工序,no heat-treatment step as recorded
+企业生产,industrial production
+生产记录,production records
+铝合金,aluminium alloy
+基体,substrate/base material
+板材,plate
+直接加热熔炼,direct-heating melting
+半连续铸造,semi-continuous casting

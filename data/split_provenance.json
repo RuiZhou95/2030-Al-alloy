@@ -1,0 +1,17 @@
+{
+  "version": "1.1.0",
+  "modelling_rows": 284,
+  "trial_rows": 4,
+  "trial_sample_ids": ["al_150", "al_191", "al_243", "al_48"],
+  "experimental_role": "independent post-design trials, author-confirmed",
+  "author_confirmation_date": "2026-10-13",
+  "experimental_chronology_independently_verified": false,
+  "records_not_deposited": ["design recipes", "fabrication logs", "raw testing records"],
+  "historical_outcome_selector_present": true,
+  "historical_selector_reproduces_same_four_ids": true,
+  "historical_score_maximum_absolute_difference": 5.551115123125783e-17,
+  "supported_reproduction_split_policy": "read immutable released train and trial tables; do not select trial rows using measured outcomes",
+  "relationship_of_historical_selector_to_physical_chronology": "not independently resolved from available records",
+  "measured_property_values_modified_for_release": false,
+  "balance_score_role": "preserved historical outcome-based diagnostic; excluded from predictive features"
+}

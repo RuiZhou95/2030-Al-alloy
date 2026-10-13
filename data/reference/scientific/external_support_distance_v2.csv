@@ -1,0 +1,13 @@
+﻿sample_id,support_model_target,nearest_training_distance,positive_training_nn_median,support_distance_ratio,normalization
+al_150,delta_strength_mpa,0.0,0.018579348089272363,0.0,median of strictly positive training nearest-neighbour distances
+al_191,delta_strength_mpa,0.0,0.018579348089272363,0.0,median of strictly positive training nearest-neighbour distances
+al_243,delta_strength_mpa,0.0,0.018579348089272363,0.0,median of strictly positive training nearest-neighbour distances
+al_48,delta_strength_mpa,0.0,0.018579348089272363,0.0,median of strictly positive training nearest-neighbour distances
+al_150,elongation_pct,0.3409822178923264,0.26512538873385744,1.2861168050360383,median of strictly positive training nearest-neighbour distances
+al_191,elongation_pct,0.5466114302588216,0.26512538873385744,2.0617091138243655,median of strictly positive training nearest-neighbour distances
+al_243,elongation_pct,1.1920928955078125e-07,0.26512538873385744,4.4963362475423996e-07,median of strictly positive training nearest-neighbour distances
+al_48,elongation_pct,0.0789319908250953,0.26512538873385744,0.29771570049192886,median of strictly positive training nearest-neighbour distances
+al_150,yield_strength_mpa,0.0,0.018579348089272363,0.0,median of strictly positive training nearest-neighbour distances
+al_191,yield_strength_mpa,0.0,0.018579348089272363,0.0,median of strictly positive training nearest-neighbour distances
+al_243,yield_strength_mpa,0.0,0.018579348089272363,0.0,median of strictly positive training nearest-neighbour distances
+al_48,yield_strength_mpa,0.0,0.018579348089272363,0.0,median of strictly positive training nearest-neighbour distances

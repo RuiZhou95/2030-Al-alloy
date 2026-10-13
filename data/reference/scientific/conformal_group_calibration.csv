@@ -1,0 +1,4 @@
+﻿target,model,feature_set,n_oof_samples,n_condition_groups,method,nominal_coverage,quantile_level,symmetric_half_width
+delta_strength_mpa,xgb,process,284,262,finite-sample condition-group max absolute OOF residual,0.95,0.9541984732824428,18.843391418457045
+elongation_pct,gpr,joint,284,262,finite-sample condition-group max absolute OOF residual,0.95,0.9541984732824428,3.5491758463048466
+yield_strength_mpa,xgb,process,284,262,finite-sample condition-group max absolute OOF residual,0.95,0.9541984732824428,64.75015258789062

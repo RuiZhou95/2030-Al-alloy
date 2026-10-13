@@ -1,0 +1,11 @@
+﻿descriptor,label,family,n_grades,mean_score,max_score,n_threshold
+pair_balance_Si_Fe,"balance(Si,Fe)",systematic pair balance,2,0.33280966097566156,0.35788731667304385,2
+mol_Ti,n(Ti),molar composition,1,0.48542177083488547,0.48542177083488547,1
+pair_product_Mg_Si,n(Mg)x n(Si),systematic pair product,1,0.47624523034533206,0.47624523034533206,1
+pair_balance_Si_Mn,"balance(Si,Mn)",systematic pair balance,1,0.4215353045344879,0.4215353045344879,1
+pair_sum_Si_Zn,n(Si)+n(Zn),systematic pair sum,1,0.4111547378408447,0.4111547378408447,1
+pair_sum_Cu_Si,n(Cu)+n(Si),systematic pair sum,1,0.3934369447259828,0.3934369447259828,1
+phaseimbalance_beta,Mg2Si imbalance,phase-stoichiometric excess,1,0.38974677725813534,0.38974677725813534,1
+pair_product_Si_Fe,n(Si)x n(Fe),systematic pair product,1,0.3879932720126553,0.3879932720126553,1
+pair_product_Zn_Fe,n(Zn)x n(Fe),systematic pair product,1,0.38671172953025773,0.38671172953025773,1
+pair_balance_Si_Zr,"balance(Si,Zr)",systematic pair balance,1,0.36575835879184837,0.36575835879184837,1

@@ -177,7 +177,8 @@ def main() -> None:
     predictability = grade_predictability(raw)
     predictability.to_csv(OUT_DATA / "grade_identity_diagnostic.csv", index=False, encoding="utf-8-sig")
 
-    outcome_based_selector = False
+    source_code = (Path(__file__).resolve().parents[1] / "historical/00_data_overview.py").read_text(encoding="utf-8")
+    outcome_based_selector = all(token in source_code for token in ["balance_score", "TARGETS", "idxmax"])
     constant_within = process_cardinality[process_cardinality["n_unique"] <= 1]
     n_grade_field_constant = int(len(constant_within))
     n_grade_field_total = int(len(process_cardinality))

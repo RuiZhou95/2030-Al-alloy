@@ -161,6 +161,19 @@ def main():
     aggregate = pd.DataFrame(agg)
     safe_csv(aggregate, DATA / "external_experiment_summary.csv")
 
+    hist = pd.read_csv(AL / "data/verification_predictions.csv", encoding="utf-8-sig")
+    hist = hist[["sample_id", "target", "measured", "pred_RandomForest", "cv_rmse"]].copy()
+    hist = hist.rename(columns={"pred_RandomForest": "historical_locked_rf_prediction"})
+    revised = detail[detail["target"].isin([
+        "yield_strength_mpa", "ultimate_tensile_strength_mpa", "elongation_pct"
+    ])][["sample_id", "target", "predicted", "interval_covered"]]
+    comparison = hist.merge(revised, on=["sample_id", "target"], validate="one_to_one")
+    comparison["historical_abs_error"] = (
+        comparison["historical_locked_rf_prediction"] - comparison["measured"]
+    ).abs()
+    comparison["revised_abs_error"] = (comparison["predicted"] - comparison["measured"]).abs()
+    safe_csv(comparison, DATA / "historical_vs_revised_external.csv")
+
 
     lines = []
     for r in aggregate.itertuples():

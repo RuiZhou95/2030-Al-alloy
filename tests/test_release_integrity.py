@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 FORBIDDEN_SUFFIXES = {
-    ".csv", ".tsv", ".xlsx", ".xls", ".parquet", ".feather",
+    ".xlsx", ".xls", ".parquet", ".feather",
     ".joblib", ".pkl", ".pickle",
     ".png", ".jpg", ".jpeg", ".svg", ".pdf", ".tif", ".tiff",
     ".doc", ".docx", ".ppt", ".pptx",
@@ -25,8 +25,9 @@ ALLOWED_TOP_LEVEL = {
     "requirements.txt",
     "scripts",
     "tests",
+    "data", "historical", "LICENSE-DATA", "PROVENANCE.md", "CODE_PROVENANCE.json", "REPRODUCIBILITY.md",
 }
-TEXT_SUFFIXES = {".py", ".md", ".txt", ".yaml", ".yml", ".toml", ".cff", ""}
+TEXT_SUFFIXES = {".py", ".md", ".txt", ".yaml", ".yml", ".toml", ".cff", ".json", ".csv", ".tsv", ""}
 
 
 def repository_files():
@@ -48,7 +49,7 @@ def test_release_file_types_and_top_level():
 
 
 def test_python_sources_compile(tmp_path):
-    for script in sorted((ROOT / "scripts").glob("*.py")):
+    for script in sorted((ROOT / "scripts").glob("*.py")) + sorted((ROOT / "historical").glob("*.py")):
         py_compile.compile(
             str(script),
             cfile=str(tmp_path / f"{script.stem}.pyc"),

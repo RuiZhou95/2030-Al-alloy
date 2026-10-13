@@ -1,0 +1,474 @@
+{
+  "version": "1.1.0",
+  "license": "CC-BY-4.0",
+  "files": [
+    {
+      "path": "data/01_processed_data.csv",
+      "sha256": "91c86ca59422c8f2b0ea04a54314708356cf943561653bb8c3bfda106579eadd",
+      "bytes": 108405,
+      "role": "fixed analysis input",
+      "source_stage": "data",
+      "source_filename": "01_processed_data.csv",
+      "rows": 284,
+      "columns": 103
+    },
+    {
+      "path": "data/02_engineered_features.csv",
+      "sha256": "58788ea230c46813f430baf53da2f8d9d2657ac4a9b34bcb4a257b2e24a034b2",
+      "bytes": 54384,
+      "role": "fixed analysis input",
+      "source_stage": "data",
+      "source_filename": "02_engineered_features.csv",
+      "rows": 284,
+      "columns": 33
+    },
+    {
+      "path": "data/verification_holdout.csv",
+      "sha256": "f3f3768330991672e2e23df75d625187bb9a122a2811b2c651fa46eeeacbb053",
+      "bytes": 3359,
+      "role": "fixed analysis input",
+      "source_stage": "data",
+      "source_filename": "verification_holdout.csv",
+      "rows": 4,
+      "columns": 104
+    },
+    {
+      "path": "data/results.json",
+      "sha256": "42073234d498817957efd881e6a5cf9b1bc15285d3e9a484b384e2229702248b",
+      "bytes": 222012,
+      "role": "historical numerical result/configuration",
+      "source_stage": "data",
+      "source_filename": "results.json"
+    },
+    {
+      "path": "data/verification_predictions.csv",
+      "sha256": "bbf512d14a3a31118c7cbcebf0460ff15a14bff9b7423ac388ac4fc5ea8fd9e9",
+      "bytes": 2460,
+      "role": "historical numerical result/configuration",
+      "source_stage": "data",
+      "source_filename": "verification_predictions.csv",
+      "rows": 12,
+      "columns": 12
+    },
+    {
+      "path": "data/variance_decomposition.csv",
+      "sha256": "5b76de1dc892817646a3de38c10bc6e51cfdcc96b077b263485240873a11df42",
+      "bytes": 411,
+      "role": "historical numerical result/configuration",
+      "source_stage": "data",
+      "source_filename": "variance_decomposition.csv",
+      "rows": 3,
+      "columns": 6
+    },
+    {
+      "path": "data/reference/scientific/condition_groups.csv",
+      "sha256": "b454cee4935fa44fbf8f55211cd20e6be6472a9edef9d8bda6447a74247d7de1",
+      "bytes": 9043,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "condition_groups.csv",
+      "rows": 284,
+      "columns": 4
+    },
+    {
+      "path": "data/reference/scientific/variance_decomposition_corrected.csv",
+      "sha256": "ef57159500f834d49ef9242d2e4cd5fb63a689b6ce2b8520620c8f4167dd3d0f",
+      "bytes": 499,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "variance_decomposition_corrected.csv",
+      "rows": 3,
+      "columns": 8
+    },
+    {
+      "path": "data/reference/scientific/grade_identity_diagnostic.csv",
+      "sha256": "07f74db54d4732b6ce0859260aaa55acf5193fcd225910aca676962af74af134",
+      "bytes": 342,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "grade_identity_diagnostic.csv",
+      "rows": 3,
+      "columns": 4
+    },
+    {
+      "path": "data/reference/scientific/process_cardinality_by_grade.csv",
+      "sha256": "bfc55240884a9c74d1a9db1081416431926b943efc559cf0db419049987db5a2",
+      "bytes": 1594,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "process_cardinality_by_grade.csv",
+      "rows": 56,
+      "columns": 4
+    },
+    {
+      "path": "data/reference/scientific/nested_v1_full_pooled_metrics.csv",
+      "sha256": "3fa63e5d432cead9c9a4f0de34c8ba6edb3acbea6946359f42cb3fbb159f5446",
+      "bytes": 27282,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "nested_v1_full_pooled_metrics.csv",
+      "rows": 240,
+      "columns": 9
+    },
+    {
+      "path": "data/reference/scientific/nested_v1_full_fold_metrics.csv",
+      "sha256": "0865e43ff140d16b4f188cd4a497f1726fa271a7f5bb6160a3e4589a8d9b4668",
+      "bytes": 149397,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "nested_v1_full_fold_metrics.csv",
+      "rows": 855,
+      "columns": 11
+    },
+    {
+      "path": "data/reference/scientific/nested_v1_full_oof_predictions.csv",
+      "sha256": "e91f7f7d910c441b5153088a8f17683142fd71a8ca4d3b67bc54744eef0545b8",
+      "bytes": 7681091,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "nested_v1_full_oof_predictions.csv",
+      "rows": 51120,
+      "columns": 11
+    },
+    {
+      "path": "data/reference/scientific/model_freeze_selection.csv",
+      "sha256": "e2c7911c9abbfe9247bb16ddd00cc0dd7fd06e8ea9b85ad58e99278aa4d09e28",
+      "bytes": 773,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "model_freeze_selection.csv",
+      "rows": 3,
+      "columns": 14
+    },
+    {
+      "path": "data/reference/scientific/conformal_group_calibration.csv",
+      "sha256": "2fc8f0202fb73e0f74f326980867bf4b5ad089a0f20de37116626a606f2b2d92",
+      "bytes": 528,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "conformal_group_calibration.csv",
+      "rows": 3,
+      "columns": 9
+    },
+    {
+      "path": "data/reference/scientific/conditional_ale_by_grade.csv",
+      "sha256": "5fc0090cddf6772d85b11acb84ae513303819d505b749f6066944a60f0dba016",
+      "bytes": 8436,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "conditional_ale_by_grade.csv",
+      "rows": 93,
+      "columns": 9
+    },
+    {
+      "path": "data/reference/scientific/conditional_shap_stability.csv",
+      "sha256": "d5aec08fe5d86ba10d7198dacb562604291a3684c53df8debce6eefc98d47045",
+      "bytes": 4870,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "conditional_shap_stability.csv",
+      "rows": 46,
+      "columns": 9
+    },
+    {
+      "path": "data/reference/scientific/elongation_gpr_permutation_summary.csv",
+      "sha256": "e9e5bb5b8ee8a441b8c8d05b78550baa52c1c293b63ac9b63d50c037e75945ad",
+      "bytes": 2099,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "elongation_gpr_permutation_summary.csv",
+      "rows": 30,
+      "columns": 5
+    },
+    {
+      "path": "data/reference/scientific/selected_model_validation_ladder.csv",
+      "sha256": "af23d673fc1d83728869add472c32a312dba14120aa92291c9230d1b310bd0ed",
+      "bytes": 1302,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "selected_model_validation_ladder.csv",
+      "rows": 12,
+      "columns": 9
+    },
+    {
+      "path": "data/reference/scientific/robust_route_candidates.csv",
+      "sha256": "cc03087a6614d3f3fa8be301f6c635d028e7b05c80cd495b1656ffe0375653e2",
+      "bytes": 34322411,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "robust_route_candidates.csv",
+      "rows": 48000,
+      "columns": 51
+    },
+    {
+      "path": "data/reference/scientific/robust_pareto_ys_el.csv",
+      "sha256": "daa2cfcf7d6ef695b660b22c78e0f55668d57e33c3640dd16f453e4372b4ea0b",
+      "bytes": 26655,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "robust_pareto_ys_el.csv",
+      "rows": 36,
+      "columns": 51
+    },
+    {
+      "path": "data/reference/scientific/robust_pareto_uts_el.csv",
+      "sha256": "fe03cc117b0ae8ba52a00156afc05d0a681efc08cc129863c8f6c90b320d0734",
+      "bytes": 27533,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "robust_pareto_uts_el.csv",
+      "rows": 37,
+      "columns": 51
+    },
+    {
+      "path": "data/reference/scientific/robust_representatives_by_grade.csv",
+      "sha256": "e3d419847f98967970e034eeca10e3f6ae60538a7858bbfa2c477366fc76a2fd",
+      "bytes": 3546,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "robust_representatives_by_grade.csv",
+      "rows": 4,
+      "columns": 52
+    },
+    {
+      "path": "data/reference/scientific/external_experiment_predictions_v2.csv",
+      "sha256": "629d81e1c470a4cfb495479e68e588daffd49e39b65dfead9497ebf69757b323",
+      "bytes": 3992,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "external_experiment_predictions_v2.csv",
+      "rows": 16,
+      "columns": 17
+    },
+    {
+      "path": "data/reference/scientific/external_experiment_summary_v2.csv",
+      "sha256": "dc52c28a10a95d39554251b4795b43e690aaa124a63ca8e8dad831bb60024b43",
+      "bytes": 553,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "external_experiment_summary_v2.csv",
+      "rows": 4,
+      "columns": 8
+    },
+    {
+      "path": "data/reference/scientific/external_support_distance_v2.csv",
+      "sha256": "5b8a83a61510b4875baedb87c398e9d3dbc34e57cc337152faf91b9ce8298415",
+      "bytes": 1671,
+      "role": "released supplementary-analysis reference result; replay input",
+      "source_stage": "revision_scientific_v1/data",
+      "source_filename": "external_support_distance_v2.csv",
+      "rows": 12,
+      "columns": 6
+    },
+    {
+      "path": "data/reference/paper/fig2a_nominal_chemistry.csv",
+      "sha256": "23fc416b44b7d5547f5ed975d101bf1048519082419298802531f1316e8f7507",
+      "bytes": 451,
+      "role": "paper source table; regenerated by materials table stage",
+      "source_stage": "revision_al_materials_mechanism_v2/data",
+      "source_filename": "fig2a_nominal_chemistry.csv",
+      "rows": 4,
+      "columns": 6
+    },
+    {
+      "path": "data/reference/paper/fig2b_branch_points.csv",
+      "sha256": "f9b3e4601d443c15f6dd7229315f1101470535057856e2c5a79e7296799004b9",
+      "bytes": 11020,
+      "role": "paper source table; regenerated by materials table stage",
+      "source_stage": "revision_al_materials_mechanism_v2/data",
+      "source_filename": "fig2b_branch_points.csv",
+      "rows": 288,
+      "columns": 7
+    },
+    {
+      "path": "data/reference/paper/fig3_state_responses.csv",
+      "sha256": "c909d0a4902061147cc166e2680ffc637650107cf03662c4f3a721e1a73e8099",
+      "bytes": 5302,
+      "role": "paper source table; regenerated by materials table stage",
+      "source_stage": "revision_al_materials_mechanism_v2/data",
+      "source_filename": "fig3_state_responses.csv",
+      "rows": 39,
+      "columns": 10
+    },
+    {
+      "path": "data/reference/paper/fig4_trial_percentiles.csv",
+      "sha256": "f0c140c06c5c7d574983fbc9e6209ece1beacf1a775e29c27a8699b04a4f6737",
+      "bytes": 629,
+      "role": "paper source table; regenerated by materials table stage",
+      "source_stage": "revision_al_materials_mechanism_v2/data",
+      "source_filename": "fig4_trial_percentiles.csv",
+      "rows": 4,
+      "columns": 9
+    },
+    {
+      "path": "data/reference/paper/fig5_trial_predictions.csv",
+      "sha256": "3ed2730c72ccba14e25068b7cf6ba61215bc1e04e3d829d1a0ba56260eb28905",
+      "bytes": 2212,
+      "role": "paper source table; regenerated by materials table stage",
+      "source_stage": "revision_al_materials_mechanism_v2/data",
+      "source_filename": "fig5_trial_predictions.csv",
+      "rows": 12,
+      "columns": 12
+    },
+    {
+      "path": "data/reference/paper/mechanism_descriptor_summary.csv",
+      "sha256": "03c368b12ab14c112fb836d8e91878958a23d59cf3c3ab2f329d431e1a8d789f",
+      "bytes": 475,
+      "role": "historical materials source table; regenerated by materials table stage",
+      "source_stage": "revision_materials_mainline_v1/data",
+      "source_filename": "mechanism_descriptor_summary.csv",
+      "rows": 4,
+      "columns": 6
+    },
+    {
+      "path": "data/reference/paper/state_response_summary.csv",
+      "sha256": "72609426e0aad6d64bd5da2d171535877f48f9e243735df8d01cf290e7a42f15",
+      "bytes": 5397,
+      "role": "historical materials source table; regenerated by materials table stage",
+      "source_stage": "revision_materials_mainline_v1/data",
+      "source_filename": "state_response_summary.csv",
+      "rows": 39,
+      "columns": 10
+    },
+    {
+      "path": "data/reference/paper/cross_grade_design_validation.csv",
+      "sha256": "a67ebe245d58604ff0cae69fcc87b33ace0368b5aba6fe62f8ee0e597e63bf65",
+      "bytes": 638,
+      "role": "historical materials source table; regenerated by materials table stage",
+      "source_stage": "revision_materials_mainline_v1/data",
+      "source_filename": "cross_grade_design_validation.csv",
+      "rows": 4,
+      "columns": 9
+    },
+    {
+      "path": "data/reference/paper/prospective_cross_grade_validation.csv",
+      "sha256": "736e959d68040c1b16530edab81a1fba326a1c17db37b82c629345b692bbfda4",
+      "bytes": 2216,
+      "role": "historical materials source table; regenerated by materials table stage",
+      "source_stage": "revision_materials_mainline_v1/data",
+      "source_filename": "prospective_cross_grade_validation.csv",
+      "rows": 12,
+      "columns": 12
+    },
+    {
+      "path": "data/reference/descriptors/descriptor_candidate_matrix_284.csv",
+      "sha256": "76b34bfe2020066e334798e1cac1094ef5d8d9e6890b02a4173a970ff3ad6861",
+      "bytes": 597751,
+      "role": "descriptor reference result; regenerated by screening/role scripts",
+      "source_stage": "revision_al_materials_mechanism_v2/data_materials_v2",
+      "source_filename": "descriptor_candidate_matrix_284.csv",
+      "rows": 284,
+      "columns": 120
+    },
+    {
+      "path": "data/reference/descriptors/descriptor_display_set.csv",
+      "sha256": "dbe211f606561c8bb7f311300f6ce2d7b3db7f60e1cf00b9383c8f4bbc9bd307",
+      "bytes": 1038,
+      "role": "descriptor reference result; regenerated by screening/role scripts",
+      "source_stage": "revision_al_materials_mechanism_v2/data_materials_v2",
+      "source_filename": "descriptor_display_set.csv",
+      "rows": 10,
+      "columns": 7
+    },
+    {
+      "path": "data/reference/descriptors/descriptor_grade_separation.csv",
+      "sha256": "ee22ba85f342cdf9dba8f01800b904f2a18ad3e14dde2299d1e473f820bfc1d2",
+      "bytes": 8135,
+      "role": "descriptor reference result; regenerated by screening/role scripts",
+      "source_stage": "revision_al_materials_mechanism_v2/data_materials_v2",
+      "source_filename": "descriptor_grade_separation.csv",
+      "rows": 118,
+      "columns": 4
+    },
+    {
+      "path": "data/reference/descriptors/descriptor_library.csv",
+      "sha256": "e43ea9fe488f4bfa8abc4b470ff4e37d2bfcc4e8dbd91256d0cf2242ddb9a5f2",
+      "bytes": 13299,
+      "role": "descriptor reference result; regenerated by screening/role scripts",
+      "source_stage": "revision_al_materials_mechanism_v2/data_materials_v2",
+      "source_filename": "descriptor_library.csv",
+      "rows": 118,
+      "columns": 5
+    },
+    {
+      "path": "data/reference/descriptors/descriptor_primary_panel.csv",
+      "sha256": "039bec399e28507ea560a6df9826a1c9765c9fe278da764cc55fbbd6f9244d0d",
+      "bytes": 7042,
+      "role": "descriptor reference result; regenerated by screening/role scripts",
+      "source_stage": "revision_al_materials_mechanism_v2/data_materials_v2",
+      "source_filename": "descriptor_primary_panel.csv",
+      "rows": 40,
+      "columns": 14
+    },
+    {
+      "path": "data/reference/descriptors/descriptor_role_assignment.csv",
+      "sha256": "0e06b4977108a7e71ba8e8485931611261088f3c133298a454c5602043964069",
+      "bytes": 1440,
+      "role": "descriptor reference result; regenerated by screening/role scripts",
+      "source_stage": "revision_al_materials_mechanism_v2/data_materials_v2",
+      "source_filename": "descriptor_role_assignment.csv",
+      "rows": 10,
+      "columns": 8
+    },
+    {
+      "path": "data/reference/descriptors/descriptor_selected_by_grade.csv",
+      "sha256": "399eb288d3c160431596bce7993796e927e3d99c0772332f06b50a7496b6e4d0",
+      "bytes": 8060,
+      "role": "descriptor reference result; regenerated by screening/role scripts",
+      "source_stage": "revision_al_materials_mechanism_v2/data_materials_v2",
+      "source_filename": "descriptor_selected_by_grade.csv",
+      "rows": 40,
+      "columns": 13
+    },
+    {
+      "path": "data/reference/descriptors/descriptor_stability_all.csv",
+      "sha256": "a4dbe9e05ecade32ea193d6c7f4e3de25623adc4961526cbc5321e39f1653324",
+      "bytes": 143025,
+      "role": "descriptor reference result; regenerated by screening/role scripts",
+      "source_stage": "revision_al_materials_mechanism_v2/data_materials_v2",
+      "source_filename": "descriptor_stability_all.csv",
+      "rows": 1416,
+      "columns": 12
+    },
+    {
+      "path": "data/CITATION.cff",
+      "sha256": "ccbc756d01a187af5c201f9e8d3018b50f82b4e8af6ac1d7d49c626f695a8e52",
+      "bytes": 505,
+      "role": "release metadata/documentation authored 2026-10-13"
+    },
+    {
+      "path": "data/README.md",
+      "sha256": "0616919c2ceea38f4c3ee6f3f6cd768b26ab24dfc72263d34739dc7507f6e816",
+      "bytes": 4108,
+      "role": "release metadata/documentation authored 2026-10-13"
+    },
+    {
+      "path": "data/data_profile.json",
+      "sha256": "4a866b6e319d3c841d6ebd99c512c875caea5fc0893f39dfc61ead855938d27e",
+      "bytes": 332,
+      "role": "release metadata/documentation authored 2026-10-13"
+    },
+    {
+      "path": "data/field_dictionary.csv",
+      "sha256": "6e60b0cbdd490db1ca428e41b5b16827c765959d39654de39c41d204193838b7",
+      "bytes": 7806,
+      "role": "release metadata/documentation authored 2026-10-13",
+      "rows": 104,
+      "columns": 6
+    },
+    {
+      "path": "data/route_dictionary.csv",
+      "sha256": "2477b6ea6a3509b6962310fbd5d66128ad304dd50187fe7eabafff8f0999aab4",
+      "bytes": 1183,
+      "role": "release metadata/documentation authored 2026-10-13",
+      "rows": 19,
+      "columns": 2
+    },
+    {
+      "path": "data/split_provenance.json",
+      "sha256": "c2c78ac7e35928fd61ba50e9a77376a59f2f5ace717cf35ff6d8f713095a44ee",
+      "bytes": 1000,
+      "role": "release metadata/documentation authored 2026-10-13"
+    }
+  ]
+}

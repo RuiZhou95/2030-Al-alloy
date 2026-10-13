@@ -1,39 +1,30 @@
 root_environment_variable: ALLOY_PRIVATE_ROOT
+default_root: repository root
 data_subdirectory: data
+data_license: CC-BY-4.0
 primary_files:
   processed:
     filename: 01_processed_data.csv
-    required_columns:
-      - sample_id
-      - alloy_or_coating_name
-      - yield_strength_mpa
-      - ultimate_tensile_strength_mpa
-      - elongation_pct
+    expected_rows: 284
+    required_columns: [sample_id, alloy_or_coating_name, yield_strength_mpa, ultimate_tensile_strength_mpa, elongation_pct]
   engineered:
     filename: 02_engineered_features.csv
-    required_columns:
-      - sample_id
-  prospective_trials:
+    expected_rows: 284
+    required_columns: [sample_id]
+  author_confirmed_trials:
     filename: verification_holdout.csv
-    required_columns:
-      - sample_id
-      - alloy_or_coating_name
-      - yield_strength_mpa
-      - ultimate_tensile_strength_mpa
-      - elongation_pct
-  variance_decomposition:
-    filename: variance_decomposition.csv
-symbolic_regression_files:
-  filename_patterns:
-    - sr_<target>_scan_all.csv
-    - sr_<target>_features.txt
-    - sr_<target>_best.json
-    - sr_<target>_X_tr.csv
-    - sr_<target>_X_te.csv
-  targets:
-    - yield_strength_mpa
-    - delta_strength_mpa
-    - elongation_pct
+    expected_rows: 4
+    required_columns: [sample_id, alloy_or_coating_name, yield_strength_mpa, ultimate_tensile_strength_mpa, elongation_pct]
+  historical_model_search:
+    filename: results.json
+  historical_predictions:
+    filename: verification_predictions.csv
+    expected_rows: 12
+reference_outputs:
+  scientific: reference/scientific
+  paper: reference/paper
+  descriptors: reference/descriptors
 notes:
-  - Composition and process-feature columns are read from the private tables.
-  - No study data are included in the public repository.
+  - Read split_provenance.json and PROVENANCE.md before interpreting experimental validation.
+  - Processed data and numerical reference outputs are included; raw instrument and fabrication records are not deposited.
+  - Historical symbolic-regression exploration is not part of the current quick replay.

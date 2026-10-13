@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite this version of the dataset and the associated study."
+title: "Processed records and numerical source tables for cross-grade aluminium-alloy design"
+type: dataset
+authors:
+  - family-names: Zhou
+    given-names: Rui
+  - family-names: Luo
+    given-names: Xudong
+  - family-names: Bao
+    given-names: Luyao
+  - family-names: Cai
+    given-names: Meirong
+url: "https://github.com/RuiZhou95/2030-Al-alloy"
+license: CC-BY-4.0
+version: 1.1.0
+date-released: 2026-10-13

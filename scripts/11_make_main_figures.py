@@ -932,7 +932,7 @@ def main():
         "n_modelling": len(tr),
         "n_trials": len(ex),
         "main_figures": 7,
-        "panel_counts": {"fig1": 5, "fig2": 4, "fig3": 4, "fig4": 4,
+        "panel_counts": {"fig1": 5, "fig2": 4, "fig3": 4, "fig4": 2,
                          "fig5": 5, "fig6": 4, "fig7": 5},
         "formats": ["svg", "pdf", "tiff", "png"],
         "exclusions": "none",

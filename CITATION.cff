@@ -1,14 +1,22 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the associated article and this software release."
-title: "2030-Al-alloy: analysis code for cross-grade aluminium-alloy design"
+message: "Please cite the tagged data/code release and the associated article."
+title: "2030-Al-alloy: data and code for cross-grade aluminium-alloy design"
 type: software
 authors:
-  - family-names: "Zhou"
-    given-names: "Rui"
+  - family-names: Zhou
+    given-names: Rui
+  - family-names: Luo
+    given-names: Xudong
+  - family-names: Bao
+    given-names: Luyao
+  - family-names: Cai
+    given-names: Meirong
 repository-code: "https://github.com/RuiZhou95/2030-Al-alloy"
 url: "https://github.com/RuiZhou95/2030-Al-alloy"
 license: MIT
-version: 1.0.7
-date-released: 2026-10-08
+version: 1.1.0
+date-released: 2026-10-13
 keywords:
   - aluminium alloys
+  - machine learning
+  - reproducibility

@@ -1,0 +1,17 @@
+{
+  "training_rows": 284,
+  "trial_rows": 4,
+  "training_by_grade": {
+    "2024": 64,
+    "5083": 32,
+    "6082": 89,
+    "7075": 99
+  },
+  "train_trial_ids_overlap": [],
+  "duplicate_training_ids": 0,
+  "missing_training_targets": {
+    "yield_strength_mpa": 0,
+    "ultimate_tensile_strength_mpa": 0,
+    "elongation_pct": 0
+  }
+}

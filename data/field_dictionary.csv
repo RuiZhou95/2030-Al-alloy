@@ -1,0 +1,105 @@
+﻿field,unit,nonmissing_records,unique_nonmissing_values,definition,note
+Al_wt_pct,wt.%,288,216,Al wt pct,
+B_wt_pct,wt.%,288,1,B wt pct,
+C_wt_pct,wt.%,288,1,C wt pct,
+Co_wt_pct,wt.%,288,1,Co wt pct,
+Cr_wt_pct,wt.%,288,52,Cr wt pct,
+Cu_wt_pct,wt.%,288,142,Cu wt pct,
+Fe_wt_pct,wt.%,288,114,Fe wt pct,
+Mg_wt_pct,wt.%,288,152,Mg wt pct,
+Mn_wt_pct,wt.%,288,137,Mn wt pct,
+Mo_wt_pct,wt.%,288,1,Mo wt pct,
+N_wt_pct,wt.%,288,1,N wt pct,
+Nb_wt_pct,wt.%,288,1,Nb wt pct,
+Ni_wt_pct,wt.%,288,7,Ni wt pct,
+O_wt_pct,wt.%,288,1,O wt pct,
+P_wt_pct,wt.%,288,1,P wt pct,
+S_wt_pct,wt.%,288,1,S wt pct,
+Si_wt_pct,wt.%,288,93,Si wt pct,
+Sn_wt_pct,wt.%,288,1,Sn wt pct,
+Ti_wt_pct,wt.%,288,25,Ti wt pct,
+V_wt_pct,wt.%,288,56,V wt pct,
+Zn_wt_pct,wt.%,288,124,Zn wt pct,
+Zr_wt_pct,wt.%,288,12,Zr wt pct,
+aging_temp_c,degrees C,288,3,aging temp c,
+aging_time_h,h,288,3,aging time h,
+alloy_or_coating_name,not specified / categorical,288,4,alloy or coating name,
+annealing_temp_c,degrees C,288,2,annealing temp c,
+annealing_time_h,h,288,2,annealing time h,
+applied_stress_mpa,MPa,0,0,applied stress mpa,not reported in released records
+balance_score,not specified / categorical,4,4,balance score,historical measured-outcome diagnostic; not a feature or reproduction split rule
+casting_method,not specified / categorical,288,1,casting method,
+composition_basis,not specified / categorical,288,1,composition basis,
+cooling_method,not specified / categorical,288,3,cooling method,
+cooling_rate_c_per_min,not specified / categorical,0,0,cooling rate c per min,not reported in released records
+corrosion_current_density_ua_cm2,not specified / categorical,0,0,corrosion current density ua cm2,not reported in released records
+corrosion_potential_v,not specified / categorical,0,0,corrosion potential v,not reported in released records
+corrosion_rate,not specified / categorical,0,0,corrosion rate,not reported in released records
+data_source_type,not specified / categorical,288,1,data source type,
+defect_distribution_note,not specified / categorical,0,0,defect distribution note,not reported in released records
+deformation_pass_count,not specified / categorical,0,0,deformation pass count,not reported in released records
+doi_or_url,not specified / categorical,0,0,doi or url,not reported in released records
+dynamic_pressure_cycle_count,not specified / categorical,0,0,dynamic pressure cycle count,not reported in released records
+dynamic_pressure_profile,not specified / categorical,0,0,dynamic pressure profile,not reported in released records
+dynamic_pressure_rate_mpa_per_min,not specified / categorical,0,0,dynamic pressure rate mpa per min,not reported in released records
+elastic_modulus_gpa,not specified / categorical,0,0,elastic modulus gpa,not reported in released records
+elongation_pct,%,288,116,elongation pct,
+erosion_duration_h,not specified / categorical,0,0,erosion duration h,not reported in released records
+erosion_result,not specified / categorical,0,0,erosion result,not reported in released records
+exposure_depth_m,not specified / categorical,0,0,exposure depth m,not reported in released records
+flow_velocity_m_per_s,not specified / categorical,0,0,flow velocity m per s,not reported in released records
+forging_temp_c,degrees C,0,0,forging temp c,not reported in released records
+fracture_toughness_mpa_sqrtm,not specified / categorical,0,0,fracture toughness mpa sqrtm,not reported in released records
+grain_size_um,not specified / categorical,0,0,grain size um,not reported in released records
+hardness_hv,not specified / categorical,0,0,hardness hv,not reported in released records
+heat_treatment_route,not specified / categorical,288,3,heat treatment route,
+homogenization_temp_c,degrees C,288,4,homogenization temp c,
+homogenization_time_h,h,288,4,homogenization time h,
+humidity_pct,%,0,0,humidity pct,not reported in released records
+hydrostatic_pressure_mpa,MPa,0,0,hydrostatic pressure mpa,not reported in released records
+immersion_medium,not specified / categorical,0,0,immersion medium,not reported in released records
+immersion_result,not specified / categorical,0,0,immersion result,not reported in released records
+immersion_time_h,h,0,0,immersion time h,not reported in released records
+impact_energy_j,not specified / categorical,0,0,impact energy j,not reported in released records
+manufacturing_route,not specified / categorical,288,6,manufacturing route,
+material_system,not specified / categorical,288,1,material system,
+melting_method,not specified / categorical,288,1,melting method,
+metal_coating_compatibility_result,not specified / categorical,0,0,metal coating compatibility result,not reported in released records
+notes,not specified / categorical,0,0,notes,not reported in released records
+other_elements_note,not specified / categorical,288,1,other elements note,
+oxygen_content_mg_per_l,not specified / categorical,0,0,oxygen content mg per l,not reported in released records
+ph_value,not specified / categorical,0,0,ph value,not reported in released records
+phase_constituents,not specified / categorical,0,0,phase constituents,not reported in released records
+phase_fraction_main_pct,%,0,0,phase fraction main pct,not reported in released records
+pitting_potential_v,not specified / categorical,0,0,pitting potential v,not reported in released records
+porosity_pct,%,0,0,porosity pct,not reported in released records
+precipitate_fraction_pct,%,0,0,precipitate fraction pct,not reported in released records
+precipitate_size_nm,not specified / categorical,0,0,precipitate size nm,not reported in released records
+pressure_resistance_result,not specified / categorical,0,0,pressure resistance result,not reported in released records
+product_form,not specified / categorical,288,1,product form,
+rolling_reduction_pct,%,288,6,rolling reduction pct,
+rolling_speed_m_per_min,not specified / categorical,0,0,rolling speed m per min,not reported in released records
+rolling_temp_c,degrees C,288,3,rolling temp c,
+salinity_pct,%,0,0,salinity pct,not reported in released records
+salt_spray_concentration_pct,%,0,0,salt spray concentration pct,not reported in released records
+salt_spray_time_h,h,0,0,salt spray time h,not reported in released records
+sample_id,not specified / categorical,288,288,sample id,
+sample_orientation,not specified / categorical,0,0,sample orientation,not reported in released records
+sample_role,not specified / categorical,288,1,sample role,
+sea_area,not specified / categorical,0,0,sea area,not reported in released records
+service_life_year,not specified / categorical,0,0,service life year,not reported in released records
+solution_temp_c,degrees C,288,5,solution temp c,
+solution_time_h,h,288,6,solution time h,
+source_reference,not specified / categorical,288,1,source reference,
+specimen_thickness_mm,mm,288,116,specimen thickness mm,
+static_pressure_hold_h,not specified / categorical,0,0,static pressure hold h,not reported in released records
+strain_rate_s_inv,not specified / categorical,0,0,strain rate s inv,not reported in released records
+stress_mode,not specified / categorical,0,0,stress mode,not reported in released records
+substrate_material_name,not specified / categorical,0,0,substrate material name,not reported in released records
+surface_pretreatment,not specified / categorical,0,0,surface pretreatment,not reported in released records
+test_standard,not specified / categorical,288,1,test standard,
+test_strain_rate_s_inv,not specified / categorical,0,0,test strain rate s inv,not reported in released records
+test_temperature_c,not specified / categorical,288,1,test temperature c,
+texture_or_orientation_note,not specified / categorical,0,0,texture or orientation note,not reported in released records
+ultimate_tensile_strength_mpa,MPa,288,148,ultimate tensile strength mpa,
+yield_strength_mpa,MPa,288,155,yield strength mpa,
